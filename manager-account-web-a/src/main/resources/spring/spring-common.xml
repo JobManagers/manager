@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        http://www.springframework.org/schema/aop 
+        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+    <context:annotation-config /> 
+    	
+	<context:component-scan base-package="cn.mldn" />
+	
+	<!-- <aop:aspectj-autoproxy /> -->
+    <!-- 配置Shiro在Spring中的生命周期的控制操作 -->
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+
+	<!-- 现在需要在控制层之中启用注解进行认证与授权的检测，所以此时需要做一个AOP的代理配置 -->
+	<bean id="serviceDefaultAdvisorAutoProxyCreator"
+		class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+		depends-on="lifecycleBeanPostProcessor"> 
+		<!-- 设置为代理的目标类型对象 -->
+		<property name="proxyTargetClass" value="true" />
+	</bean>
+	<!-- 配置一个针对于安全管理器的AOP程序功能类 -->
+	<bean id="serviceAuthorizationAttributeSourceAdvisor"
+		class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+		<!-- 表示此时需要针对于安全管理器进行AOP的切割处理 -->
+		<property name="securityManager" ref="securityManager" />
+	</bean>
+    
+    
+	<mvc:annotation-driven
+	content-negotiation-manager="contentNegotiationManager" />
+	<bean id="contentNegotiationManager"
+		class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+		<property name="favorPathExtension" value="false" />
+		<property name="favorParameter" value="false" />
+		<property name="ignoreAcceptHeader" value="false" />
+		<property name= "mediaTypes"> <!--扩展名到MIME的映射；favorPathExtension, favorParameter是true时起作用  -->
+            <value>
+                json=application/json
+              	xml=application/xml
+                html=text/html
+                *=*/*
+            </value>
+        </property>
+        <!-- 默认的content type -->
+        <property name= "defaultContentType" value= "application/json" />
+	</bean>
+	
+	
+	<bean
+		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" />
+	<bean
+		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<bean
+					class="org.springframework.http.converter.StringHttpMessageConverter">
+					<property name="supportedMediaTypes">
+						<list>
+							<value>text/html;charset=UTF-8</value>
+							<value>application/json;charset=UTF-8</value>
+						</list>
+					</property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 处理在类级别上的@RequestMapping注解 -->
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+	</bean>
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<bean
+					class="org.springframework.http.converter.StringHttpMessageConverter">
+					<property name="supportedMediaTypes">
+						<list>
+							<value>text/html;charset=UTF-8</value>
+						</list>
+					</property>
+				</bean>
+				<bean
+					class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+					<property name="supportedMediaTypes">
+						<list>
+							<value>application/json;charset=UTF-8</value>
+						</list>
+					</property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	
+
+	<!-- 视图解析器 -->
+	<bean id="jspViewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/view" />
+		<property name="suffix" value=".jsp" />
+		<property name="redirectHttp10Compatible" value="false" />
+	</bean>
+	
+    <!--<mvc:resources location="/js/" mapping="/js/**" />
+    <mvc:resources location="/css/" mapping="/css/**" />
+    <mvc:resources location="/img/" mapping="/img/**" />-->
+    
+    
+    <!--拦截器配置  -->
+    <!-- <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/login/login.htm"/>
+            <mvc:exclude-mapping path="/login/login"/>
+            <mvc:exclude-mapping path="/ronglian/*"/>
+            <mvc:exclude-mapping path="/employee/addEmpInfo4Acct"/>
+            <mvc:exclude-mapping path="/api/service"/>
+            <mvc:exclude-mapping path="/activity/show"/> 社工管理 查看详情 无登录查看 
+             <mvc:exclude-mapping path="/activity/signupX"/> 社工管理 查看详情 无登录报名 
+            <bean class="cn.xxx.LoginInterceptor"/>
+        </mvc:interceptor>
+
+    </mvc:interceptors> -->
+
+	<!-- 配置属性文件 -->
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath:config/dubbo.properties</value>
+			</list>
+		</property>
+		<property name="ignoreUnresolvablePlaceholders" value="false" />
+	</bean>
+	<import resource="classpath:spring/dubbo-consumer.xml" />
+    <context:property-placeholder location="classpath:config/*.properties"/>
+    <import resource="classpath:spring/spring-shiro.xml" />
+	<!-- <import resource="classpath:spring/spring-redis.xml" /> -->
+</beans>

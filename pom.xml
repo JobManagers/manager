@@ -407,5 +407,6 @@
     <module>manager-account-service</module>
     <module>manager-account-test</module>
     <module>manager-account-web</module>
+    <module>manager-account-web-a</module>
   </modules>
 </project>
