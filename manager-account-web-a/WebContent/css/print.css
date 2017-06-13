@@ -1,0 +1,157 @@
+.pull-left{float: left;}
+.text-center{text-align: center;}
+.inline{display: inline-block;}
+/*健康报告*/
+.page{page-break-after: always;}
+#printContent{width: 1060px;margin:auto;}
+#printContent >img,#printContent >.main_content  {width: 1060px;margin:auto;}
+
+.panel_baogao{position: relative;margin-top: 40px;border: solid 1px #ebf8ff;width: 1030px;margin: 40px auto 0px;}
+.panel_baogao_2{clear: both;width: 467px;display: inline-block;margin-left: 40px;margin-right: 60px;height: 393px;background: #fff;}
+.panel_baogao_2+.panel_baogao_2{margin-right: 0px;margin-left:0px}
+.panel_baogao .panel-heading{border: 0;position: absolute;left: -15px;top:30px;padding: 0px 0px;width: 219px;height: 50px;line-height: 45px;text-align: left;text-indent:30px;font-size: 24px;color: #333333;}
+.panel_baogao .panel-heading img{position: absolute;left: 0;top: 0px;}
+.panel_baogao .panel-heading span{position: absolute;left: 0;top: 2px;}
+.panel_baogao .panel-body{background: #fff;min-height: 365px;overflow: hidden;}
+/*健康日报*/
+.panel_baogao .panel-heading span{font-size: 24px;color: #333333;}
+.panel_baogao .panel-heading-daily{width: 233px;height: 68px;line-height: 68px;background-position: 0px -65px;}
+.panel_baogao .panel-heading-l{background-position: -399px -65px;width: 313px;}
+.panel_baogao .panel-heading-s{background-position: -801px -65px;width: 163px;}
+.baogao_daily{padding-bottom: 0px;position: relative;background: #f5f7fa;}
+.baogao_daily .bgLineXie{background: #f5f7fa;}
+.baogao_daily .panel_baogao{min-height: 393px;}
+.fbold{font-size: 20px;color: #333333;font-weight: bold;}
+.xya_echart{width: 262px;height: 184px;position: relative;margin:40px 0px  0px 140px;}
+.xya_echart img{position: absolute;top: 0px;}
+.xya_echart div{position: absolute;right: 0px;top: 0px;}
+.xya_echart +div{margin:28px  0px 40px  99px;}
+.xya_echart p{font-size: 40px;color: #666666;text-align: right;margin-right: 30px;margin-bottom: 6px;}
+.xya_echart +div >p{font-size: 14px;color: #7e7e7e;margin-bottom: 0px;}
+p.daily_right{font-size: 20px;text-align: center;margin-top: 80px;}
+p.daily_right font{font-size: 60px;padding: 0px 10px;}
+.color7e{color: #7E7E7E;}
+.xtang_echart,.xyang_echart{width: 457px;height: 32px;margin: auto;position: relative;}
+.jk_dotted{position: absolute;width: 22px;height: 22px;top: -7px;}
+.fcolora{color: #37b8df;}
+.fcolorb{color: #8acc3a;}
+.fcolorc{color: #f7ba49;}
+.fcolord{color: #f8782b;}
+.fcolore{color: #d65230;}
+.fcolorf{color: #f67e34;}
+.fcolorg{color: #f8bb4b;}
+.fcolorh{color: #8acc3a;}
+.fcolori{color: #e13b29;}
+.xyang_echart{background-position: 0px -58px;}
+.baogao_btn{position: absolute;right: 0px;}
+.baogao_btn{position: absolute;right: 20px;top: 20px;}
+.baogao_btn button{border:solid #FFFFFF 2px;margin-left: 20px;background: #716ffb;color: #FFFFFF;width: 90px;height: 38px;line-height: 28px;font-size: 18px;border-radius: 3px;-webkit-border-radius: 3px;}
+.baogao_btn button:hover{background: #837ffc;color: #FFFFFF;}
+.pull_line{line-height: 34px;font-size: 18px;color:#333;margin: 30px 0px;}
+.jk_sg{margin-left: 44px;}
+/*健康日报*/
+
+.panel_baogao .panel-body >.pull-left{width: 425px;padding:125px 50px 0px 15px;float:left;vertical-align: 50px;}
+.panel_baogao .panel-body >.pull-left + .pull-left{width: 510px;padding: 0px;}
+.bgLineXie{background: url(../img/line_xie_2.jpg) repeat;}
+.zhy_baogao_header{margin-top: 15px;}
+.zhy_baogao_h{position: absolute;width: 294px;height: 45px;right: 0px;line-height:45px;color:#FFFFFF;font-size:18px;text-align:center;}
+.zhy_baogao_score {overflow: hidden;width: 1000px;margin: auto;}
+.zhy_baogao_score .pull-left{display: inline-block;position: relative;width: 345px;margin: 65px 80px 0px 60px ;height: 285px;}
+.zhy_baogao_score .pull-left+.pull-left{width: 340px;height: 285px;margin: 65px 80px 0px 60px ;background-position: -583px -223px;}
+.zhy_baogao_score_num,.zhy_baogao_score_num2{font-size: 68px;color: #5aa4ff;position: absolute;top: 100px;width: 100%;text-align: center;left: 0px}
+.zhy_baogao_score .pull-left p{position: absolute;font-size: 12px;color: rgb(169, 191, 253);bottom: -10px;left: 48px;}
+.zhy_baogao_score_circle{display: block;position: absolute;width: 13px;height: 12px;bottom: 229px; left: 12px;bottom: 211px;left: 250px;}
+.zhy_baogao_footer{background-color: #8791ff;color:#FFFFFF;height: 71px;margin-top: 20px;line-height: 35px;font-size: 16px;text-align: center;width: 100%;}
+.zhy_baogao_footer p{line-height: 8px;font-size: 14px;}
+
+body{-webkit-print-color-adjust:exact;}
+*{margin:0;padding:0;}
+ul,ol,li{list-style:none;}
+img{border:0;}
+a { text-decoration:none; color:#666;outline:none}
+a:hover { text-decoration:none;}
+body {font-family:"Microsoft YaHei"; background-color:#fff;}
+.clear { clear:both; height:1px; overflow:hidden;}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix{zoom:1}
+.colorblue{color: #00a2ff;}
+.colorred{color: #ff0000;}
+.daily{padding: 45px;background: #fff;}
+body >button{cursor: pointer;position: fixed;right: 70px;top: 10px;z-index: 2;border:solid #ccc 2px;background: #999999;color: #FFFFFF;width: 90px;height: 38px;line-height: 28px;font-size: 18px;border-radius: 3px;-webkit-border-radius: 3px;}
+body >button:hover{background: #aaa;color: #FFFFFF;}
+.daily_head{width: 900px;margin: auto;height: 213px;position: relative;}
+.daily_data{width: 890px;margin: auto;overflow: hidden;}
+.daily_head >div{float: left;margin-left: 20px;}
+.daily_info{float: right;position: relative;margin-left: 55px;width: 356px;text-align: center;}
+.daily_info img{position: absolute;top: 0px;left: 0px;width: 100%;}
+.daily_info div{position: absolute;width: 100%;top: 42px;}
+p.title{color: #009247;font-family: "宋体";font-size: 16px;font-weight: 700;}
+p.title+p.title0{margin-top: 10px;}
+p.title0{text-align: left;font-family: "宋体";text-indent: 55px;font-size: 14px;color: #383838;line-height: 1.5em;}
+.daily_dataH{background: #d6d6d6;height: 32px;line-height: 32px;text-indent: 20px;color: #333;margin:25px 0px 14px;}
+td .daily_dataH{font-size: 16px;}
+.daily_table{padding: 1px;border: solid 1px #d6d6d6;}
+table{font-size: 14px;color: #333333;width: 100%;}
+table th{background: #f4f4f4;font-weight: 400;height:42px;border: solid 1px #FFFFFF;}
+table td{font-weight: 400;height:42px;text-align: center;}
+.daily_re{color: #7e7e7e;font-size: 12px;padding-top: 5px;line-height: 1em;}
+.daily_remark >div{border: solid 1px #D6D6D6;margin-top: 25px;height: 120px;}
+.daily_remark .daily_dataH{background: #FFFFFF;margin-top: 0px;}
+.daily_dataHblock{position: relative;height: 32px;margin:25px 0px 14px;}
+.daily_dataHblock img{position: absolute;top: 0px;left: 0px;width: 100%;}
+.daily_dataHblock .daily_dataH{position: absolute;top: 0px;left: 0px;width: 100%;margin: 0px;}
+.print_show{display: block !important;}
+#printContent img.print_show{padding-top: 400px;width: 800px;margin:auto;}
+#printContent2 img.print_show{width: 300px;padding-top: 300px ;margin:auto;}
+.print_hide{display: none !important;}
+.print_height{height: auto !important;overflow: hidden !important;}
+/*入住改版*/
+.create_site .well_head{position:relative;width:98%;height:30px;line-height:30px;text-indent:6px;margin:auto;background:#f2f2f2;margin-top:30px;overflow:hidden;color:#333;background:#FFF}
+.create_site .well_head span{color:#333;font-size:16px;display:inline-block;background-color:#fff;z-index:1;position:absolute;left:0;padding-right:10px}
+.create_site .well_head button{position:absolute;right:0;display:inline-block;padding-left:10px;height:25px;line-height:23px!important;padding-top:0;background:#FFF;border-radius:15px!important;-webkit-border-radius:15px!important;}
+.create_site .well_head .btn-sm{font-size:14px}
+.create_site .well_head .line{width:100%;position:absolute;left:0;height:1px;background:#E1E4E6;text-align:center;margin-top:13px}
+.ruzhu_block {padding-bottom: 100px;background: #fff;}
+.zhy_ruzhu_table{width: 100%;table-layout: fixed;color:#333333}
+.zhy_ruzhu_table tr td{border-bottom: solid 1px #e9eaed;}
+.zhy_ruzhu_table td{height: 68px;line-height: 68px;}
+.zhy_ruzhu_table td label{margin-right: 30px;}
+.zhy_ruzhu_tablea{width: 100%;table-layout: fixed;text-align: center;border-collapse:collapse;border:none;margin-top: 30px;}
+.zhy_ruzhu_tablea th{background: #f5f5f5;text-align: center;border: solid 1px #e3e7e8;border-color: #e3e7e8;font-weight: normal;font-size: 16px;height: 50px;}
+.zhy_ruzhu_tablea td{height: 50px;border: solid 1px #e3e7e8;border-color: #e3e7e8;}
+.zhy_ruzhu_head{height: 50px;line-height: 50px;color:#333;font-size: 16px;background: #1a91e5;text-align: center;}
+.zhy_ruzhu_table td[align="right"]{text-align: right;}
+.zhy_ruzhu_table td[align="left"]{text-align: left;}
+			
+#printContent3 {width: 100%;}
+#printContent3 table{width: 100%}
+.print_show table thead{background: transparent;}
+.print_show table th{text-align: left;height:1.2em;line-height: 1.2em;}
+.print_show table td{text-align: left;height:1.2em;line-height: 1.2em;}
+
+/*中医体质辨识*/
+@charset "utf-8";
+.jk_zhognyi_baogao{padding: 30px 20px;background: url(../img/zhy_zhongyi_bg0.jpg);}
+.jk_zhongyi_header{padding: 25px;background: #1963a8;color: #fff;font-size: 18px;text-indent: 2em;}
+.jk_zhongyi_content{background: #fff;margin-top: 30px;}
+.jk_zy_block{padding: 30px 30px;}
+.jk_zy_block h3{font-size: 22px;color: #34474f;margin: 0;}
+
+.zhy_zy_item_tablea{font-size: 16px;width: 100%;color:#333333;text-align: center;margin-top: 20px;}
+.zhy_zy_item_tablea th{background: #4389c9;border-right:solid 3px #fff;border-bottom:solid 3px #fff;color: #ffffff;height: 35px;}
+.zhy_zy_item_tablea td{height: 32px;}
+.zhy_zy_item_tablea tr.even{background: #f4f4f4;}
+
+.zhy_zy_item_table{table-layout: fixed;margin-bottom:3px ;color:#333333}
+.zhy_zy_item_table td.text-left{text-align: left;}
+.zhy_zy_item_table td.text-center{text-align: center;}
+.zhy_zy_item_table td.text-right{text-align: right;}
+.zhy_zy_item_table td.border_r3{border-right: solid 3px #fff;font-size: 20px;line-height: 1em;padding: 23px 0px;}
+.zhy_zy_item_table td.border_r3 +td{padding:15px 10px ;font-size: 16px;}
+.zhy_zy_item_table tr.even td{background-color: #f4f4f4;}
+.zhy_zy_item_table tr.odd td{background-color: #ffffff;}
+.zhy_zy_item_table tr td.colorA ,.zhy_zy_item_table tr td.colorB{background-color: #fff;color: #fff;font-size:26px;}
+.zhy_zy_item_table tr td.colorA {background-color: #4389c9;border-right: solid 12px #fff;}
+.zhy_zy_item_table tr td.colorB {background-color: #6db923;border-right: solid 12px #fff;}
+
