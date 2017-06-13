@@ -1,0 +1,41 @@
+@charset "utf-8";
+.jk_zhognyi_baogao{padding: 30px 20px;background: url(../img/zhy_zhongyi_bg0.jpg);}
+.jk_zhongyi_header{padding: 25px;background: #1963a8;color: #fff;font-size: 18px;text-indent: 2em;}
+.jk_zhongyi_content{background: #fff;margin-top: 30px;}
+.jk_zy_block{padding: 30px 30px;}
+.jk_zy_block h3{font-size: 22px;color: #34474f;margin: 0;}
+
+.zhy_zy_item_tablea{font-size: 16px;width: 100%;color:#333333;text-align: center;margin-top: 20px;}
+.zhy_zy_item_tablea th{background: #4389c9;border-right:solid 3px #fff;border-bottom:solid 3px #fff;color: #ffffff;height: 35px;}
+.zhy_zy_item_tablea td{height: 32px;}
+.zhy_zy_item_tablea tr.even{background: #f4f4f4;}
+
+.zhy_zy_item_table{table-layout: fixed;margin-bottom:3px ;color:#333333}
+.zhy_zy_item_table td.text-left{text-align: left;}
+.zhy_zy_item_table td.text-center{text-align: center;}
+.zhy_zy_item_table td.text-right{text-align: right;}
+.zhy_zy_item_table td.border_r3{border-right: solid 3px #fff;font-size: 16px;line-height: 1em;padding: 10px 0px;}
+.zhy_zy_item_table td.border_r3 +td{padding:6px 10px ;font-size: 16px;}
+.zhy_zy_item_table tr.even td{background-color: #f4f4f4;}
+.zhy_zy_item_table tr.odd td{background-color: #ffffff;}
+.zhy_zy_item_table tr td.colorA ,.zhy_zy_item_table tr td.colorB{background-color: #fff;color: #fff;font-size:26px;}
+.zhy_zy_item_table tr td.colorA {background-color: #4389c9;border-right: solid 12px #fff;}
+.zhy_zy_item_table tr td.colorB {background-color: #6db923;border-right: solid 12px #fff;}
+/*体检接待登记  会员整改*/
+.zhy_jd_table{width: 100%;table-layout: fixed;color:#333333}
+.zhy_jd_table tr{/*border-bottom: solid 1px #e9eaed;*/}
+.zhy_jd_table td{padding: 5px 0px;line-height:30px ;}
+.zhy_jd_table td label{margin-right: 30px;}
+.mem_jd_block .well_head{margin: 10px;}
+.mem_jd_block{padding: 5px 15px 5px 20px;}
+.mem_jd_block .well_head span.pull-left{font-weight: bold;color: #666;}
+/*预定床位*/
+.zhy_book_table{width: 100%;table-layout: fixed;}
+.zhy_book_table td{padding: 6px;color: #333;}
+.zhy_book_table td[align='right']{padding: 6px 14px 6px 10px;}
+.switch_checkboxab{position: relative;width: 47px;height: 22px;float: right;margin-right: 30px;}
+.switch_checkboxab input{width: 100%;height: 100%;position: absolute;left: 0px;opacity: 0;}
+.switch_checkboxab span{display: inline-block;float: left;width: 23px;height: 22px;cursor: pointer;background: url(../img/zhy_bed_btn_switch.png) no-repeat 0 0;}
+.switch_checkboxab span.echart1{display: inline-block;width: 24px;height: 22px;cursor: pointer;background: url(../img/zhy_bed_btn_switch.png) no-repeat -23px -22px ;}
+.switch_checkboxab.on .echart{background: url(../img/zhy_bed_btn_switch.png) no-repeat 0 -22px ;}
+.switch_checkboxab.on1 .echart1{background: url(../img/zhy_bed_btn_switch.png) no-repeat -23px 0px ;}
