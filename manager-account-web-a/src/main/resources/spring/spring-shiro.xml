@@ -97,7 +97,7 @@
 		<!-- 如果授权出现了错误则跳转到此路径之中 -->
 		<property name="unauthorizedUrl" value="/unauth.jsp" />
 		<!-- 描述的是登录成功后的跳转页 -->
-		<property name="successUrl" value="/pages/abc.jsp" />
+		<property name="successUrl" value="/index.jsp" />
 		<!-- 如果现在要修改内置的过滤器操作，就必须配置好新的过滤规则 -->
 		<property name="filters">
 			<map>
@@ -112,7 +112,8 @@
 			<value>
 				/shiro-cas=casFilter
 				/logout.jsp=logout
-				/pages/welcome.jsp=authc
+				<!-- /pages/welcome.jsp=authc -->
+				/**=user
 			</value>
 		</property>
 	</bean>

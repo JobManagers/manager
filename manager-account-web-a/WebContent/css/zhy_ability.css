@@ -1,0 +1,67 @@
+.zhy_Aset_ul{overflow: hidden;margin-top: 20px;}
+.zhy_Aset_ul li{float: left;width: 223px;height: 110px;text-align: center;cursor: pointer;background: url(../img/zhy_ability_bg.jpg) no-repeat -252px 0; margin-left: 30px;}
+.zhy_Aset_ul li.on{background-position: 0 0;}
+.zhy_Aset_ul li p{font-size: 22px;color: #333;line-height: 1em;margin: 30px auto 20px;}
+.zhy_Aset_ul li a.zhy_abtn{border: solid 1px #e6eaeb;background: #FFFFFF;padding: 3px 5px;-webkit-border-radius: 3px;border-radius: 3px;}
+.zhy_ability_block{margin: 0px 30px;}
+.zhy_ability_block h4{font-size: 14px;color: #333333;font-weight: bold;}
+.zhy_Atd_ul{overflow: hidden;border-bottom: solid 1px #edf1f2;margin: 0px 30px;}
+.zhy_Atd_ul li{float: left;width: 168px;text-align: center;}
+.zhy_Atd_ul li a{font-size: 16px;color: #666666;line-height: 1em;display: block;padding-bottom: 20px;border-bottom: solid 3px #fff;}
+.zhy_Atd_ul li.on a{color:#1a91e5;border-bottom: solid 3px #26a2f1;}
+.zhy_ability_items{margin: 30px 0;}
+.zhy_ability_items p{color: #333333;margin-bottom: 15px;}
+.zhy_ability_items p.pl20{padding-left: 50px;line-height: 1.5em;text-indent: -1em;}
+.zhy_ability_item{padding-left: 20px;overflow: hidden;font-size: 12px;color:#333333;}
+.zhy_ability_item label{display: block;margin-top: 10px;margin-bottom: 10px;}
+.zhy_ability_item span{display: inline-block;float: left;color: #333333;margin-right: 10px;line-height: 24px;font-size: 12px;border: solid 1px #ced6d8;background: #f7fafc;-webkit-border-radius: 4px;border-radius: 4px;padding: 0px 28px;margin-bottom: 10px;}
+.zhy_ability_res{padding: 65px 100px;}
+.zhy_ability_res ul{height: 27px;margin-bottom: 0;}
+.zhy_ability_resb ul{height: 17px;}
+.zhy_ability_res ul li{width: 25%;text-align: center;position: relative;color:#333;float: left;height: 27px;line-height: 27px;background-color: #a8d3f0;}
+.zhy_ability_resa ul li{width: 20%;}
+.zhy_ability_resb ul li {height: 17px;}
+.zhy_ability_resb ul li:first-child{-webkit-border-bottom-left-radius: 10px;-webkit-border-top-left-radius: 10px;border-bottom-left-radius: 10px;border-top-left-radius: 10px;}
+.zhy_ability_resb ul li.radius{-webkit-border-bottom-right-radius: 10px;-webkit-border-top-right-radius: 10px;border-bottom-right-radius: 10px;border-top-right-radius: 10px;}
+.zhy_ability_res ul li.color1{background-color: #81c4f0;}
+.zhy_ability_res ul li.color2{background-color: #5bb4f0;}
+.zhy_ability_res ul li.color3{background-color: #35a5f0;}
+.zhy_ability_res ul li.color4{background-color: #0090f0;}
+.zhy_ability_res ul li i{font-style: normal;background: url(../img/zhy_ability_bg1.png);display: inline-block;width: 100px;height: 39px;position: absolute;top: -40px;left: 50%;margin-left: -50px;color: #FFFFFF;line-height: 30px;font-size: 16px;}
+.zhy_ability_table {padding: 15px;}
+.zhy_ability_item_table label{vertical-align: middle;margin-left: 25px;}
+.zhy_ability_type .well_head{width: 96%;}
+.zhy_ability_item_table{table-layout: fixed;}
+.zhy_ability_item_table td.text-left{text-align: left;}
+.zhy_ability_item_table td.text-center{text-align: center;}
+.zhy_ability_item_table td.text-right{text-align: right;}
+.zhy_ability_item_table tr.even td{background-color: #f2f5f7;}
+.zhy_ability_item_table tr.odd td{background-color: #ffffff;}
+.zhy_ability_item_table tr td.colorA ,.zhy_ability_item_table tr td.colorB,.zhy_ability_item_table tr td.colorC,.zhy_ability_item_table tr td.colorD,.zhy_ability_item_table tr td.colorE{background-color: #fff;color: #fff;font-size: 16px;position: relative;}
+.zhy_ability_item_table tr td.colorA  div{position: absolute;left: 0px;width: 95%;height: 400px;top: 0px;line-height: 400px;background-color: #3aa4f0;}
+.zhy_ability_item_table tr td.colorB div{position: absolute;width: 95%;height: 120px;top: 0px;line-height: 120px;background-color: #ffa033;color: #FFFFFF;font-size: 16px;}
+.zhy_ability_item_table tr td.colorC div{position: absolute;width: 95%;height: 200px;top: 0px;line-height: 200px;background-color: #e0ac1b;color: #FFFFFF;font-size: 16px;}
+.zhy_ability_item_table tr td.colorD div{position: absolute;width: 95%;height: 120px;top: 0px;line-height: 120px;background-color: #ffa033;color: #FFFFFF;font-size: 16px;}
+.zhy_ability_item_table tr td.colorE div{position: absolute;width: 95%;height: 240px;top: 0px;line-height: 240px;background-color: #2693e2;color: #FFFFFF;font-size: 16px;}
+.zhy_ability_item_table tr td{font-size: 12px;color: #333333;line-height: 26px;}
+.zhy_ability_item_table tr td.font13{font-size: 13px;font-family: "黑体";}
+.zhy_Asetd_ul{overflow: hidden;width: 100%;padding: 0 30px;}
+.zhy_Asetd_ul li{width: 50%;float: left;position: relative;font-size: 16px;line-height: 35px;text-align: center;border:solid 1px #dbdbdb;background-color: #f2f2f2;}
+.zhy_Asetd_ul li:first-child{border-right: none;-webkit-border-top-left-radius: 3px;-webkit-border-bottom-left-radius: 3px;border-top-left-radius: 3px;border-top-left-radius: 3px;}
+.zhy_Asetd_ul li a{display: block;color: #666;}
+.zhy_Asetd_ul li i{background: url(../img/zhy_ability_bg2.png) no-repeat;width: 13px;height: 35px;position: absolute;right: -13px;z-index: 1;top: 0px;}
+.zhy_Asetd_ul li+li{border-right: solid 1px #DBDBDB;-webkit-border-top-right-radius: 3px;-webkit-border-bottom-right-radius: 3px;border-top-right-radius: 3px;border-top-right-radius: 3px;}
+.zhy_Asetd_ul li:first-child.on{border-color: #1480cc;background: #1a91e5;}
+.zhy_Asetd_ul li:first-child.on1{border-color: #1480cc;background: #2e99e5;}
+.zhy_Asetd_ul li:first-child.on1 i{background-position: 0px -35px;}
+.zhy_Asetd_ul li+li.on{border-color: #1480cc;background: #1a91e5;}
+.zhy_Asetd_ul li.on a,.zhy_Asetd_ul li.on1 a{color: #FFFFFF;}
+.zhy_ability_text{padding:0px 100px 30px 100px;position: relative;}
+.zhy_ability_text span{position: absolute;left: 50px;font-size: 16px;line-height: 32px;color: #333;}
+
+.zhy_cardset_ul{overflow: hidden;margin-top: 20px;}
+.zhy_cardset_ul li a{float: left;width: 221px;height: 122px;text-align: center;cursor: pointer;background: url(../img/zhy_card_index.jpg) no-repeat 0 0; margin-left: 30px;}
+.zhy_cardset_ul li a:hover{background-position: -250px 0;}
+.zhy_cardset_ul li p{font-size: 32px;color: #333;line-height: 122px;}
+.icon_standard{width: 19px;height: 26px;display: inline-block;background: url(../img/zhy_xinli_icon.png) no-repeat -3px 0;vertical-align: middle;margin: ;}
+.icon_score{width: 26px;height: 26px;display: inline-block;background: url(../img/zhy_xinli_icon.png) no-repeat -26px 0;vertical-align: middle;}
