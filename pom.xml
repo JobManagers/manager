@@ -42,7 +42,7 @@
 		<sprintdata.version>1.8.3.RELEASE</sprintdata.version>
 		
 		
-		<spring.version>4.0.4.RELEASE</spring.version>
+		<spring.version>4.3.8.RELEASE</spring.version>
 		<aspectj-version>1.7.0</aspectj-version>
 	</properties>
 
