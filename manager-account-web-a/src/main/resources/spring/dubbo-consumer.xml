@@ -9,7 +9,7 @@
 		<property name="locations">
 			<list>
 				<value>classpath:config/dubbo.properties</value>
-			</list>
+			</list> 
 		</property>
 		<property name="ignoreUnresolvablePlaceholders" value="false" />
 	</bean>

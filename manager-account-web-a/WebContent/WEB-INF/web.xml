@@ -4,12 +4,12 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	id="WebApp_ID" version="3.1">
 	<display-name>shiro-ssm</display-name>
-	<!-- 防 XSS  -->
-  	<context-param>
+	<!-- 防 XSS -->
+	<context-param>
 		<param-name>defaultHtmlEscape</param-name>
 		<param-value>true</param-value>
 	</context-param>
-	
+
 	<!-- HttpOnly标识是一个可选的、避免利用XSS（Cross-Site Scripting)来获取session cookie的标识。 -->
 	<!-- XSS攻击最常见一个的目标是通过获取的session cookie来劫持受害者的session；使用HttpOnly标识是一种很有用的保护机制。 -->
 	<session-config>
@@ -18,9 +18,9 @@
 			<secure>true</secure>
 		</cookie-config>
 	</session-config>
-	
-	
- 	<!-- 配置要使用的Spring容器监听器 -->
+
+
+	<!-- 配置要使用的Spring容器监听器 -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
@@ -45,10 +45,10 @@
 	<servlet-mapping>
 		<servlet-name>springmvc</servlet-name>
 		<url-pattern>*.action</url-pattern>
-		<url-pattern>/</url-pattern>
+
 	</servlet-mapping>
-	
-	<!--处理编码  -->
+
+	<!--处理编码 -->
 	<filter>
 		<filter-name>characterEncodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -84,18 +84,15 @@
 		<dispatcher>ERROR</dispatcher>
 	</filter-mapping>
 	<error-page>
-		<exception-type>
-			org.apache.shiro.authz.UnauthenticatedException
-		</exception-type>
+		<exception-type>org.apache.shiro.authz.UnauthenticatedException</exception-type>
 		<location>/unauth.jsp</location>
-	</error-page> 
+	</error-page>
 	<error-page>
-		<exception-type>
-			org.apache.shiro.authz.UnauthorizedException
-		</exception-type>
+		<exception-type>org.apache.shiro.authz.UnauthorizedException</exception-type>
 		<location>/unauth.jsp</location>
-	</error-page> 
+	</error-page>
 	<welcome-file-list>
+		<welcome-file>login.jsp</welcome-file>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>
 		<welcome-file>index.jsp</welcome-file>

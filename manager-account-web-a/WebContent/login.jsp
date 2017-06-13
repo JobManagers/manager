@@ -10,7 +10,7 @@
 <body>
 <shiro:guest>
 	未登录的用户可见。
-</shiro:guest> 
+</shiro:guest>
 <shiro:notAuthenticated>
 <%!
 	public static final String LOGIN_URL = "login.jsp" ;

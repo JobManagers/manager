@@ -89,11 +89,10 @@
 		<property name="rememberMeManager" ref="rememberMeManager"/>
 	</bean>
 	<!-- 定义一个内置的自定义登录控制过滤器 -->
-	<bean id="formAuthenticationFilter"
-		class="cn.mldn.shiro.realm.filter.DefaultFormAuthenticationFilter">
+	<bean id="formAuthenticationFilter" class="org.apache.shiro.web.filter.authc.FormAuthenticationFilter">
 		<property name="usernameParam" value="mid" /> <!-- 登录的用户名为mid -->
 		<property name="passwordParam" value="password" /> <!-- 登录的密码为password -->
-		<property name="rememberMeParam" value="rememberme"/>
+		<!-- <property name="rememberMeParam" value="rememberme"/> -->
 		<!-- 定义生成的验证码取得session属性名称 -->
 		<!-- <property name="randname" value="rand"/> -->
 		<!-- 表单输入的验证码的参数名称 -->
@@ -125,7 +124,7 @@
 				<entry key="authc" value-ref="formAuthenticationFilter" />
 				<!-- 注销的访问的过滤路径为logout -->
 				<entry key="logout" value-ref="logoutFilter" />
-			</map>
+			</map> 
 		</property>
 		<!-- 配置所有的访问跳转处理路径 -->
 		<property name="filterChainDefinitions">
@@ -133,7 +132,7 @@
 				/logout.jsp=logout
 				/login.jsp=authc
 				/pages/welcome.jsp=user
-				/index.jsp=authc
+				/*=anon
 			</value>
 		</property>
 	</bean>
