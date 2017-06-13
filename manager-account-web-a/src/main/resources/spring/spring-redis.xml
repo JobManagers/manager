@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 如果要进行Redis处理用户应该不去关注具体的序列化或者反序列化操作，这一切都应该交给SpringDate处理 -->
+	<bean id="redisTemplate0" class="org.springframework.data.redis.core.RedisTemplate">
+		<property name="connectionFactory" ref="connectionFactory0"/>	<!-- 应以Redis连接工厂 -->
+		<property name="keySerializer">	<!-- 定义序列化key的程序处理类 -->
+			<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+		</property>
+		<property name="valueSerializer">	<!-- 处理value数据的操作 -->
+			<!-- 明确表示如果要进行value数据保存的时候，保存的对象一定要使用JDK提供的序列化处理类 -->
+			<bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
+		</property>
+		<property name="hashKeySerializer">
+			<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+		</property>
+		<property name="hashValueSerializer">
+			<bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
+		</property>
+	</bean>
+	<!-- 如果要进行Redis处理用户应该不去关注具体的序列化或者反序列化操作，这一切都应该交给SpringDate处理 -->
+	<bean id="redisTemplate1" class="org.springframework.data.redis.core.RedisTemplate">
+		<property name="connectionFactory" ref="connectionFactory1"/>	<!-- 应以Redis连接工厂 -->
+		<property name="keySerializer">	<!-- 定义序列化key的程序处理类 -->
+			<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+		</property>
+		<property name="valueSerializer">	<!-- 处理value数据的操作 -->
+			<!-- 明确表示如果要进行value数据保存的时候，保存的对象一定要使用JDK提供的序列化处理类 -->
+			<bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
+		</property>
+		<property name="hashKeySerializer">
+			<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+		</property>
+		<property name="hashValueSerializer">
+			<bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
+		</property>
+	</bean>
+	<!-- 首先进行Jedis连接池相关配置 -->
+	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+		<property name="maxTotal" value="100"/>  <!-- 最大可用连接数 -->
+		<property name="maxIdle" value="20"/>  <!-- 最小维持连接数 -->
+		<property name="maxWaitMillis" value="2000"/>  <!-- 最大等待时间 -->
+		<property name="testOnBorrow" value="true"/>	<!-- 确保取得可用连接 -->
+	</bean> 
+	<!-- 进行ConnectionFactory的配置，本connectionFactory将用户session存储在redis的0目录下 -->
+	<bean id="connectionFactory0" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+		<property name="database" value="0"/>
+		<property name="poolConfig" ref="jedisPoolConfig"/>  <!-- 引用进行连接池的配置项 -->
+		<property name="hostName" value="192.168.171.130"/>	<!-- Redis的连接地址 -->
+		<property name="password" value="mldnjava"/>	<!-- 定义的是连接密码，认证密码 -->
+		<property name="timeout" value="2000"/>	<!-- 连接的超时时间 -->
+	</bean>
+	<!-- 进行ConnectionFactory的配置，本connectionFactory将用户session和角色、权限信息存储在redis的1目录下 -->
+	<bean id="connectionFactory1" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+		<property name="database" value="1"/>
+		<property name="poolConfig" ref="jedisPoolConfig"/>  <!-- 引用进行连接池的配置项 -->
+		<property name="hostName" value="192.168.171.130"/>	<!-- Redis的连接地址 -->
+		<property name="password" value="mldnjava"/>	<!-- 定义的是连接密码，认证密码 -->
+		<property name="timeout" value="2000"/>	<!-- 连接的超时时间 -->
+	</bean>
+</beans>
