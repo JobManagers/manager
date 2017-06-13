@@ -4,7 +4,7 @@
 <mapper namespace="cn.mldn.dao.IMemberDAO">
 
 	<select id="findById" parameterType="string" resultType="Member">
-		select mid,password,name from member where mid=#{mid} and locked=0
+		select mid,password,name,locked from member where mid=#{mid} and locked=0
 	</select>
 	
 </mapper>

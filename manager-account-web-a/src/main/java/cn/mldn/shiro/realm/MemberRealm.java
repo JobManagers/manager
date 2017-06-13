@@ -49,6 +49,7 @@ public class MemberRealm extends AuthorizingRealm {
 		System.out.println("============== 1、进行认证操作处理 ==============");
 		String userid = token.getPrincipal().toString(); // 用户名
 		MemberDto member = memberService.get(userid); // 通过用户名获取用户信息
+		System.out.println("2" + member);
 		if (member == null) { // 表示该用户信息不存在，不存在则应该抛出一个异常
 			throw new UnknownAccountException("搞什么搞，用户名不存在！");
 		}
@@ -65,7 +66,7 @@ public class MemberRealm extends AuthorizingRealm {
 		SimpleAuthenticationInfo auth = new SimpleAuthenticationInfo(token.getPrincipal(),
 				password, "memberRealm");
 		SecurityUtils.getSubject().getSession().setAttribute("name", "我的名字");
-		System.out.println(member);
+		System.out.println("2" + member);
 		return auth;
 	}
 }
