@@ -20,27 +20,31 @@
 	</session-config>
 	
 	
- 	 <context-param>
+ 	<!-- 配置要使用的Spring容器监听器 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- 此配置描述的是在项目开发过程之中，Spring容器所需要使用到的配置文件 -->
+	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:spring/spring-common.xml</param-value>
-	</context-param>  
-	
+	</context-param>
+	<!-- 此为Spring MVC配置所需要的程序文件，所有的请求都提交给Spring的Servlet程序 -->
 	<servlet>
-		<!-- 拦截匹配的请求，Servlet拦截匹配规则要自已定义，把拦截下来的请求，依据相应的规则分发到目标Controller来处理，是配置spring MVC的第一步。 -->
-		<servlet-name>dispatcherServlet</servlet-name>
+		<servlet-name>springmvc</servlet-name>
+		<!-- 此为Spring MVC自己提供的servlet程序，一定要写上，因为其可以处理用户请求 -->
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
-			<!-- 如果在web.xml中不写任何参数配置信息，默认的路径是/WEB-INF/applicationContext.xml，
-			在WEB-INF目录下创建的xml文件的名称必须是applicationContext.xml；
-			如果是要自定义文件名可以在web.xml里加入contextConfigLocation这个context参数： -->
 			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:spring/spring-common.xml</param-value>
-		</init-param> 
-		<!-- 当值为0或者大于0时，表示容器在应用启动时就加载并初始化这个servlet -->
-		<load-on-startup>1</load-on-startup>
+			<!-- 配置Spring MVC所需要的配置文件，可以与Spring容器写在一起 -->
+			<param-value>classpath:spring/spring-mvc.xml</param-value>
+		</init-param>
 	</servlet>
+	<!-- SpringMVC中所有路径的请求映射，使用的是“*.action” -->
 	<servlet-mapping>
-		<servlet-name>dispatcherServlet</servlet-name>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>*.action</url-pattern>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
@@ -61,7 +65,36 @@
 		<filter-name>characterEncodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-
+	<filter>
+		<!-- 此时的filterName一定要记住 -->
+		<filter-name>shiroFilter</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+		<!-- 一旦将Shiro交由Spring管理了，那么就表示此时的所有的Shiro控制将转交给Spring完成 -->
+		<init-param>
+			<param-name>targetFilterLifecycle</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>shiroFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>INCLUDE</dispatcher>
+		<dispatcher>ERROR</dispatcher>
+	</filter-mapping>
+	<error-page>
+		<exception-type>
+			org.apache.shiro.authz.UnauthenticatedException
+		</exception-type>
+		<location>/unauth.jsp</location>
+	</error-page> 
+	<error-page>
+		<exception-type>
+			org.apache.shiro.authz.UnauthorizedException
+		</exception-type>
+		<location>/unauth.jsp</location>
+	</error-page> 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>

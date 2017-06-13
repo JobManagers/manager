@@ -27,11 +27,6 @@ public class MemberServiceImpl implements IMemberService {
 	@Override
 	public MemberDto get(String mid) {
 		Member vo = this.memberDAO.findById(mid);
-//		Member vo = new Member() ;
-//		vo.setId(1);
-//		vo.setLocked(0);
-//		vo.setMid("admin");
-//		vo.setPassword("hello");
 		MemberDto dto = new MemberDto();
 		BeanUtils.copyProperties(vo, dto);
 		return dto;

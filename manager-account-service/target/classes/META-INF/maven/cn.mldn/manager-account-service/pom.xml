@@ -37,6 +37,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		
 		<!--zookeeper依赖 s -->
 		<dependency>
 			<groupId>org.apache.zookeeper</groupId>

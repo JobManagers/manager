@@ -56,6 +56,8 @@
 		<property name="globalSessionTimeout" value="100000" />
 		<!-- 设置自动删除无效session -->
 		<property name="deleteInvalidSessions" value="true" />
+		<!-- 定义要使用的无效的Session定时调度器 -->
+		<property name="sessionValidationScheduler" ref="sessionValidationScheduler" />
 		<!-- session失效扫描启用，利用此调度器来实现无效session清除 -->
 		<property name="sessionValidationSchedulerEnabled" value="true" />
 		<!-- 配置要使用的Cookie处理模版，因为此时需要考虑到session的客户端存储 -->
@@ -93,9 +95,9 @@
 		<property name="passwordParam" value="password" /> <!-- 登录的密码为password -->
 		<property name="rememberMeParam" value="rememberme"/>
 		<!-- 定义生成的验证码取得session属性名称 -->
-		<property name="randname" value="rand"/>
+		<!-- <property name="randname" value="rand"/> -->
 		<!-- 表单输入的验证码的参数名称 -->
-		<property name="randparam" value="code"/>
+		<!-- <property name="randparam" value="code"/> -->
 		<!-- 描述的是你登录页面的执行路径，登录页面通过loginPage.action控制 -->
 		<property name="loginUrl" value="/login.jsp" />
 		<!-- 此时明确的表示要配置的是登录失败的属性的名称定义 -->

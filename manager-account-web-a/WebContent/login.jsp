@@ -8,10 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%-- <shiro:guest>
+<shiro:guest>
 	未登录的用户可见。
-</shiro:guest>
-<shiro:notAuthenticated> --%>
+</shiro:guest> 
+<shiro:notAuthenticated>
 <%!
 	public static final String LOGIN_URL = "login.jsp" ;
 %>
@@ -31,6 +31,6 @@ if (obj != null) {
 	密&nbsp;码：<input type="password" name="password" id="password"><br>
 	<input type="submit" value="登录">
 </form>
-<%-- </shiro:notAuthenticated> --%>
+</shiro:notAuthenticated>
 </body>
 </html>
