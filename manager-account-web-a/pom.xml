@@ -17,7 +17,7 @@
 			<groupId>cn.mldn</groupId>
 			<artifactId>manager-account-api</artifactId>
 		</dependency>
-		
+
 		<!-- AnnotationMethodHandlerAdapter 依赖 -->
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
