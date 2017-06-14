@@ -6,7 +6,7 @@ import java.io.Serializable;
 public class MemberDto implements Serializable {
 	private String mid ;
 	private String password ;
-	private String name ;
+	private Long id ;
 	private Integer locked ;
 	public String getMid() {
 		return mid;
@@ -20,11 +20,11 @@ public class MemberDto implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getName() {
-		return name;
+	public Long getId() {
+		return id;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public Integer getLocked() {
 		return locked;
@@ -32,10 +32,6 @@ public class MemberDto implements Serializable {
 	public void setLocked(Integer locked) {
 		this.locked = locked;
 	}
-	@Override
-	public String toString() {
-		return "MemberDto [mid=" + mid + ", password=" + password + ", name=" + name + ", locked="
-				+ locked + "]";
-	}
+	
 	
 }

@@ -18,4 +18,9 @@ public class TestMember {
 	public void testGet(){
 		System.err.println(this.memberService.get("admin"));
 	}
+	
+	@Test
+	public void testListAll(){
+		System.err.println(this.memberService.getRoleAndAction("admin"));
+	}
 }
