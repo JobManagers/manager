@@ -79,30 +79,20 @@
 						</thead> 
 						<tbody>
                            
-                           
+                        <c:forEach items="${allEmployees}" var="emp">
                            <tr> 
-							<td>倪以彤</td> 
-							<td>555555888888666666</td> 
-							<td>15369339749</td>
-							<td>A组 </td> 
+							<td>${emp.name}</td> 
+							<td>${emp.id_card}</td> 
+							<td>${emp.phone}</td>
+							<td>${emp.team_id} </td> 
 							<td>
 								<span><a href="emp_informations.jsp" class="colorblue">详情</a></span>
 			
 								<span><a href="javascript:showPopC('zhy_popa_cancel');" class="colorred">删除</a></span>
 							</td>
 						  </tr>
-
-						  <tr> 
-							<td>倪以彤</td> 
-							<td>555555888888666666</td> 
-							<td>15369339749</td>
-							<td>A组 </td> 
-							<td>
-								<span><a href="blood_chart.html" class="colorblue">详情</a></span>
-			
-								<span><a href="javascript:showPopC('zhy_popa_cancel');" class="colorred">删除</a></span>
-							</td>
-						  </tr>
+						</c:forEach>
+						 
 	                    </tbody> 
 					</table> 
 	        	</div>

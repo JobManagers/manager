@@ -24,6 +24,9 @@
             
     	}
 	</script>
+<%!
+	public static final String EMP_LIST_USR = "files/emp_list.action";
+%>	
 	</head>
 	<body class="wid_1130" style="background: #edf0f2 url(img/left_bg.jpg) repeat-y 0px 0px;overflow: hidden;" >
 		<!--<a href="javascript:void(0);" class="zhy_cloud_tip_a"><i class="icon_plus"></i>新增应用</a>
@@ -65,7 +68,7 @@
 						<li class="on">
 						   <span><i class="icon_arrow_left"></i> 员工管理</span>
 						   <ul class="second_left" style="display:block">
-						      	<li class="health_report"><a href="files/emp_list.jsp" target="mainf"><i class="icon_account"></i><span>员工列表</span></a></li>			
+						      	<li class="health_report"><a href="<%=EMP_LIST_USR %>" target="mainf"><i class="icon_account"></i><span>员工列表</span></a></li>			
 								
 						   </ul>
 						</li>
