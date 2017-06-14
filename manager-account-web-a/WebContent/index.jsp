@@ -86,14 +86,14 @@
 																
 						   </ul>
 						</li>
-						<li class="on">
+						<!-- <li class="on">
 						   <span><i class="icon_arrow_left"></i>测试</span>
 						   <ul class="second_left" style="display:block">
 						      	<li class="health_report"><a href="http://192.168.28.76:8080/1/indexz.jsp" target="mainf"><i class="icon_account"></i><span>测试子模块1</span></a></li>
 								<li class="health_report"><a href="http://192.168.28.76:8080/2/indexb.jsp" target="mainf"><i class="icon_account"></i><span>测试子模块2</span></a></li>
 																
 						   </ul>
-						</li>
+						</li> -->
 					</ul>
 					
 					</ul>
