@@ -1,2 +1,4 @@
-/cn/
 /META-INF/
+/cn/
+/conf/
+/log4j.properties
