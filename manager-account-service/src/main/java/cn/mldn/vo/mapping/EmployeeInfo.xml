@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.mldn.dao.IEmployeeInfo">
+
+	<select id="findAll" resultType="EmployeeInfo">
+		select id
+		,name ,avatar ,sex ,phone ,id_card ,birthday
+		,hire_date,dimission_date,education_degree,create_id,last_update_user_id,create_time,update_time,team_id,last_update_no,state,
+		email from EmployeeInfo 
+	</select>
+	
+	<select id="findAllById" parameterType="long" resultType="EmployeeInfo">
+		select id
+		,name ,avatar ,sex ,phone ,id_card ,birthday
+		,hire_date,dimission_date,education_degree,create_id,last_update_user_id,create_time,update_time,team_id,last_update_no,state,
+		email from EmployeeInfo where id=#{id}
+	</select>
+	
+	
+
+</mapper>

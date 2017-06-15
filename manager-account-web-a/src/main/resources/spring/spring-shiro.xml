@@ -86,8 +86,6 @@
 		<property name="failureUrl" value="https://cas.com/login?service=http://shift.com/manager-account-web-a/shiro-cas"/>
 	</bean>
 	
-	
-	
 	<!-- Shiro之中最为重要的概念就是过滤的操作概念，本次主要是进行Shiro的过滤器的相关配置 -->
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
 		<!-- 明确表示此处要使用的SecurityManager类型的对象引用关系 -->

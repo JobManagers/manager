@@ -79,9 +79,9 @@
 						   </ul>
 						</li>
 						<li class="on">
-						   <span><i class="icon_arrow_left"></i> 排班方案管理</span>
+						   <span><i class="icon_arrow_left"></i> 排班管理</span>
 						   <ul class="second_left" style="display:block">
-						      	<li class="health_report"><a href="files/sort_plan_list.jsp" target="mainf"><i class="icon_account"></i><span>排班方案管理</span></a></li>
+						      	<li class="health_report"><a href="files/planlist.action" target="mainf"><i class="icon_account"></i><span>排班方案管理</span></a></li>
 								<li class="health_report"><a href="files/sort_manager_table_list.jsp" target="mainf"><i class="icon_account"></i><span>排班表管理</span></a></li>
 																
 						   </ul>

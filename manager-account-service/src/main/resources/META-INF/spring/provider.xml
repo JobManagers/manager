@@ -15,7 +15,9 @@
 	<dubbo:monitor protocol="registry" />
 	<!-- 声明需要暴露的服务接口 -->
 	<dubbo:service interface="cn.mldn.api.IMemberService" ref="memberApi" version="${dubbo.iterface.version}" />
-</beans>
+	<dubbo:service interface="cn.mldn.api.IShiftPlanBaseService" ref="shiftPlanBaseApi" version="${dubbo.iterface.version}" />
+	<dubbo:service interface="cn.mldn.api.IShiftPlanDetailService" ref="shiftPlanDetailApi" version="${dubbo.iterface.version}" />
+</beans> 
 
 
 

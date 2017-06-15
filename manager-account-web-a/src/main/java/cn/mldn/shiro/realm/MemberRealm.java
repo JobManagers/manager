@@ -25,7 +25,7 @@ import cn.mldn.api.IMemberService;
 
 public class MemberRealm extends CasRealm {
 	@Resource
-	private IMemberService memberService;
+	private IMemberService memberService; 
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token)
 			throws AuthenticationException {
