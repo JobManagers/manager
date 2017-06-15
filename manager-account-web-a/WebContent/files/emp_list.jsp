@@ -89,7 +89,7 @@
 							<td>${emp.name}</td> 
 							<td>${emp.id_card}</td> 
 							<td>${emp.phone}</td>
-							<td>${emp.team_id} </td> 
+							<td>${allTeams[emp.team_id]} </td> 
 							<td>
 								<span><a href="emp_informations.jsp" class="colorblue">详情</a></span>
 			

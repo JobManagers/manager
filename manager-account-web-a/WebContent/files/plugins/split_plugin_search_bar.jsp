@@ -49,7 +49,7 @@
 	}
 %>
 	<div class="col-md-5">
-		<input type="text" name="kw" id="kw" value="<%=keyWord%>" style="width: 200px;" class="form-control input-sm" placeholder="请输入检索关键字">
+		<input type="text" name="kw" id="kw" value="<%=keyWord%>" class="form-control input-sm" placeholder="请输入检索关键字">
 	</div>
 	<div class="col-md-2">
 		<input type="hidden" name="${paramName}" id="${paramName}" value="${paramValue}">

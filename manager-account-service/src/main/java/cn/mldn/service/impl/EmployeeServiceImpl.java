@@ -1,20 +1,29 @@
 package cn.mldn.service.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
 import cn.mldn.api.IEmployeeService;
 import cn.mldn.dao.IEmployeeInfoDAO;
+import cn.mldn.dao.ITeamDAO;
+import cn.mldn.dto.TeamDto;
 import cn.mldn.service.abs.AbstractService;
+import cn.mldn.vo.Team;
 
 @Component(value = "employeeApi")
 public class EmployeeServiceImpl extends AbstractService implements IEmployeeService {
 	@Resource
 	private IEmployeeInfoDAO employeeInfoDAO;
+	@Resource
+	private ITeamDAO teamDAO ;
 
 	@Override
 	public Map<String, Object> listSplit(Long currentPage, Integer lineSize, String column,
@@ -23,6 +32,16 @@ public class EmployeeServiceImpl extends AbstractService implements IEmployeeSer
 		Map<String,Object> param = super.getParamMap(currentPage, lineSize, column, keyWord);
 		map.put("allEmployees", this.employeeInfoDAO.findAllSplit(param));
 		map.put("allRecorders", this.employeeInfoDAO.getAllCount(param)) ;
+		List<Team> list = this.teamDAO.findAll() ;
+		List<TeamDto> dtoList = new ArrayList<TeamDto>();
+		Iterator<Team> iter = list.iterator(); 
+		while(iter.hasNext()){
+			Team team = iter.next();
+			TeamDto teamDto = new TeamDto();
+			BeanUtils.copyProperties(team, teamDto);
+			dtoList.add(teamDto);
+		}
+		map.put("allTeams",dtoList);
 		return map;
 	}
 

@@ -13,8 +13,8 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import cn.mldnj.util.web.validator.ActionMIMEValidationUtil;
-import cn.mldnj.util.web.validator.ActionValidationUtil;
+import cn.mldn.util.web.ActionMIMEValidationUtil;
+import cn.mldn.util.web.ActionValidationUtil;
 
 
 public class ValidationInterceptor implements HandlerInterceptor {

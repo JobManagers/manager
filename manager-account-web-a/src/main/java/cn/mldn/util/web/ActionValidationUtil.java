@@ -1,4 +1,4 @@
-package cn.mldnj.util.web.validator;
+package cn.mldn.util.web;
 
 import java.util.HashMap;
 import java.util.Map;

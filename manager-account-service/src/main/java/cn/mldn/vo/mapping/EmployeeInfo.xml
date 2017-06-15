@@ -7,11 +7,10 @@
 	
 	
 	<select id="getAllCount" parameterType="map" resultType="long">
-		select count(*) from emp
+		select count(*) from employee_info
 		<where>
-			locked!=2
 			<if test="column != null and keyword != null">
-				and ${column} like #{keyWord}
+				${column} like #{keyWord}
 			</if>
 		</where>
 	</select>
@@ -21,9 +20,8 @@
 		create_id,last_update_user_id,create_time,update_time,team_id,last_update_no,state,email 
 		from employee_info 
 		<where>
-			locked!=2
 			<if test="column != null and keyword != null">
-				and ${column} like #{keyWord} 
+				${column} like #{keyWord} 
 			</if>
 		</where>
 		limit #{start},#{lineSize}

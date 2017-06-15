@@ -1,4 +1,4 @@
-package cn.mldnj.util.web.validator;
+package cn.mldn.util.web;
 /**
  * 本类专门负责进行各种字符串的数据格式验证
  * 
