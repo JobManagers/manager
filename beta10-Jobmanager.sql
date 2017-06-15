@@ -14,7 +14,7 @@
  Date: 06/16/2017 01:20:06 AM
 */
 
-SET NAMES utf;
+SET NAMES utf-8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
