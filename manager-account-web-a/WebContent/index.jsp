@@ -26,6 +26,7 @@
 	</script>
 <%!
 	public static final String EMP_LIST_USR = "files/emp_list.action";
+	public static final String TEAM_LIST_USR = "files/team_list.action";
 %>	
 	</head>
 	<body class="wid_1130" style="background: #edf0f2 url(img/left_bg.jpg) repeat-y 0px 0px;overflow: hidden;" >
@@ -77,7 +78,7 @@
 						<li class="on">
 						   <span><i class="icon_arrow_left"></i> 小组管理</span> 
 						   <ul class="second_left" style="display:block">
-						      	<li class="health_report"><a href="files/team_list.jsp" target="mainf"><i class="icon_account"></i><span>小组列表</span></a></li>			
+						      	<li class="health_report"><a href="<%=TEAM_LIST_USR %>" target="mainf"><i class="icon_account"></i><span>小组列表</span></a></li>			
 								
 						   </ul>
 						</li>
@@ -96,7 +97,7 @@
 			<div class="right_main fl" >
 	
 	            <div id="div_pannel">
-	            	<iframe src="files/emp_list.jsp" frameborder="0" width="100%" height="100%" name="mainf" id="mainf" border="0"></iframe>
+	            	<iframe src="files/welcome.html" frameborder="0" width="100%" height="100%" name="mainf" id="mainf" border="0"></iframe>
 	            </div>
 			</div>
         </div>

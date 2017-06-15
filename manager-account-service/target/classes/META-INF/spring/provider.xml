@@ -13,9 +13,11 @@
 	<dubbo:provider timeout="${dubbo.provider.timeout}" /><!--远程服务调用超时时间(毫秒) -->
 	<!-- <dubbo:monitor address="${dubbo.monitor.address}" /> --> <!-- 服务治理 监控中心 -->
 	<dubbo:monitor protocol="registry" />
+	
 	<!-- 声明需要暴露的服务接口 -->
 	<dubbo:service interface="cn.mldn.api.IMemberService" ref="memberApi" version="${dubbo.iterface.version}" />
 	<dubbo:service interface="cn.mldn.api.IEmployeeService" ref="employeeApi" version="${dubbo.iterface.version}" />
+	<dubbo:service interface="cn.mldn.api.ITeamService" ref="teamApi" version="${dubbo.iterface.version}" />
 </beans>
 
 

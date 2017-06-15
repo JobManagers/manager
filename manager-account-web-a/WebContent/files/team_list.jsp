@@ -1,8 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> --%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -51,7 +51,7 @@
 						   </tr> 
 						</thead> 
 						<tbody>
-                           <tr> 
+                         <!--   <tr> 
 							<td>倪以彤</td> 
 							<td>5558</td> 
 							<td>15369339749</td>
@@ -61,9 +61,22 @@
 			
 								<span><a href="javascript:showPopC('zhy_popa_cancel');" class="colorred">删除</a></span>
 							</td>
-						  </tr>
-
+						  </tr> -->
+<c:forEach items="${allTeams}" var="team">
 						  <tr> 
+							<td>${team.team_id}</td> 
+							<td>${team.name}</td> 
+					 	<%-- <td>${team.leader_id}</td> --%>
+ 						<td>${allEmployees[team.leader_id].name}</td>
+							 
+							<td>
+								<span><a href="blood_chart.html" class="colorblue">详情</a></span>
+			
+								<span><a href="javascript:showPopC('zhy_popa_cancel');" class="colorred">删除</a></span>
+							</td>
+						  </tr>
+</c:forEach>
+						<!--   <tr> 
 							<td>倪以彤</td> 
 							<td>5555558</td> 
 							<td>1536</td>
@@ -73,7 +86,7 @@
 			
 								<span><a href="javascript:showPopC('zhy_popa_cancel');" class="colorred">删除</a></span>
 							</td>
-						  </tr>
+						  </tr> -->
 	                    </tbody> 
 					</table> 
 	        	</div>

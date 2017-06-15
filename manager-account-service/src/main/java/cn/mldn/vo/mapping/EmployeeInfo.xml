@@ -5,7 +5,7 @@
 	
 	
 	<select id="findAll" resultType="EmployeeInfo">
-		select id,name,avatar,sex,phone,id_card,birthday,hire_date,dimission_date,education_degree,
+		select eid,name,avatar,sex,phone,id_card,birthday,hire_date,dimission_date,education_degree,
 		create_id,last_update_user_id,create_time,update_time,team_id,last_update_no,state,email from 
 		employee_info
 	</select>

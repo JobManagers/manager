@@ -18,4 +18,5 @@
 	<dubbo:monitor protocol="registry" />
 	<dubbo:reference id="memberApi" interface="cn.mldn.api.IMemberService" version="${dubbo.version}" />
 	<dubbo:reference id="employeeApi" interface="cn.mldn.api.IEmployeeService" version="${dubbo.version}" />
+	<dubbo:reference id="teamApi" interface="cn.mldn.api.ITeamService" version="${dubbo.version}" />
 </beans>
