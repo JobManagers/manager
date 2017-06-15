@@ -18,6 +18,7 @@ import cn.mldn.dto.EmployeeInfoDto;
 import cn.mldn.dto.TeamDto;
 import cn.mldn.service.abs.AbstractService;
 import cn.mldn.vo.EmployeeInfo;
+import cn.mldn.vo.Team;
 
 @Component(value = "employeeApi")
 public class EmployeeServiceImpl extends AbstractService implements IEmployeeService {
@@ -26,38 +27,38 @@ public class EmployeeServiceImpl extends AbstractService implements IEmployeeSer
 	@Resource
 	private ITeamDAO teamDAO ;
 	
-//	@Override
-//	public Map<String, Object> listSplit(Long currentPage, Integer lineSize, String column,
-//			String keyWord) {
-//		Map<String,Object> map = new HashMap<String,Object>();
-//		Map<String,Object> param = super.getParamMap(currentPage, lineSize, column, keyWord);
-//		map.put("allEmployees", this.employeeInfoDAO.findAllSplit(param));
-//		map.put("allRecorders", this.employeeInfoDAO.getAllCount(param)) ;
-//		List<Team> list = this.teamDAO.findAll() ;
-//		List<TeamDto> dtoList = new ArrayList<TeamDto>();
-//		Iterator<Team> iter = list.iterator(); 
-//		while(iter.hasNext()){
-//			Team team = iter.next();
-//			TeamDto teamDto = new TeamDto();
-//			BeanUtils.copyProperties(team, teamDto);
-//			dtoList.add(teamDto);
-//		}
-//		map.put("allTeams",dtoList);
-//		return map;
-//	}
-	
 	@Override
 	public Map<String, Object> listSplit(Long currentPage, Integer lineSize, String column,
 			String keyWord) {
 		Map<String,Object> map = new HashMap<String,Object>();
 		Map<String,Object> param = super.getParamMap(currentPage, lineSize, column, keyWord);
-		List<EmployeeInfoDto> allEmpdtos = super.listVoToDto(this.employeeInfoDAO.findAllSplit(param));
-		map.put("allEmployees",allEmpdtos );
+		map.put("allEmployees", this.employeeInfoDAO.findAllSplit(param));
 		map.put("allRecorders", this.employeeInfoDAO.getAllCount(param)) ;
-		List<TeamDto> dtoList = super.listVoToDto(this.teamDAO.findAll());
+		List<Team> list = this.teamDAO.findAll() ;
+		List<TeamDto> dtoList = new ArrayList<TeamDto>();
+		Iterator<Team> iter = list.iterator(); 
+		while(iter.hasNext()){
+			Team team = iter.next();
+			TeamDto teamDto = new TeamDto();
+			BeanUtils.copyProperties(team, teamDto);
+			dtoList.add(teamDto);
+		}
 		map.put("allTeams",dtoList);
 		return map;
 	}
+	
+//	@Override
+//	public Map<String, Object> listSplit(Long currentPage, Integer lineSize, String column,
+//			String keyWord) {
+//		Map<String,Object> map = new HashMap<String,Object>();
+//		Map<String,Object> param = super.getParamMap(currentPage, lineSize, column, keyWord);
+//		List<EmployeeInfoDto> allEmpdtos = super.listVoToDto(this.employeeInfoDAO.findAllSplit(param));
+//		map.put("allEmployees",allEmpdtos );
+//		map.put("allRecorders", this.employeeInfoDAO.getAllCount(param)) ;
+//		List<TeamDto> dtoList = super.listVoToDto(this.teamDAO.findAll());
+//		map.put("allTeams",dtoList);
+//		return map;
+//	}
 
 	@Override
 	public Map<String, Object> list() {
@@ -70,8 +71,6 @@ public class EmployeeServiceImpl extends AbstractService implements IEmployeeSer
 			BeanUtils.copyProperties(iter.next(), empDto);
 			allEmpdto.add(empDto);
 		}
-		
-		
 //		List<EmployeeInfoDto> allEmpdtos = super.listVoToDto(this.employeeInfoDAO.findAll());
 		map.put("allEmployees", allEmpdto);
 		return map;
