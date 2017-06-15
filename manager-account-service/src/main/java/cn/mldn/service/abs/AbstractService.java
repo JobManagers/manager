@@ -19,7 +19,7 @@ public abstract class AbstractService {
 		Iterator<K> iter = all.iterator() ;
 		List<T> allDto = new ArrayList<T>();
 		while(iter.hasNext()){
-			Object dto = new Object();
+			T dto =(T) new Object();
 			BeanUtils.copyProperties(iter.next(), dto);
 			allDto.add((T) dto);
 		}
