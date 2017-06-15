@@ -30,30 +30,11 @@
 				</div>
 				<div class="panel-body">
 					<table class="zhy_book_table" >
-					<!-- -------------此处不用,只是好看--------------------------------------------- -->
-							<tr>
-								<!-- <td align="right" width="120">员工头像：</td>
-									<td align="left" width="40%" height="40%">
-										<img src="../img/v_2.jpg"  />
-									</td>
-								</td> -->
-								<div class="form-group" id="">
-								
-								<div class="col-md-5" hidden="hidden">
-									<!-- 定义表单输入组件 -->
-									<input type="file" id="" name="pic" class="form-control"
-										placeholder="请选择雇员照片"> 
-										<img src="../img/v_2.jpg"  />
-								</div>
-								<!-- 定义表单错误提示显示元素 -->
-								<div class="col-md-4" id=""></div>
-							</div>
-							<!-- ---------------------------------------------------------- -->
-							</tr> 
+					
 						<tr>
 							<td align="right" width="120">员工姓名：</td>
 							<td align="left" width="40%">
-								<input type="text" class="form-control inline input150"  placeholder="请选择员工姓名"/>
+								<input type="text" class="form-control inline input150" id="name" name="name" placeholder="请输入员工姓名"/>
 								<!-- <button type="button" class="btn btn_save2" onclick="showPopC('mem_choose')" style="width: auto;padding: 0px 5px;">选择</button> -->
 							</td>
 							<td align="right" width="160"></td>
@@ -65,11 +46,8 @@
 									<label  class="label_radio r_on"><input type="radio" name="sex" checked="checked" onclick="setupLabel()"/>男</label>&nbsp;&nbsp;&nbsp;&nbsp;
 									<label  class="label_radio"><input type="radio" name="sex" onclick="setupLabel()"/>女</label>
 							</td>
-							
-							
 						</tr>
-						
-						<!-----------------------------------  -->
+
 						<tr>
 							<td align="right">照片：</td>
 							<td align="left">
@@ -85,7 +63,6 @@
 							</div>
 							</td> 
 						</tr>
-						<!-- ------------------------------------------ -->
 						<tr>
 							<!-- 
 							<td align="right">紧急联系人：</td>
@@ -94,19 +71,19 @@
 							</td> -->
 							<td align="right">身份证号：</td>
 							<td align="left">
-								<input type="text" class="form-control inline input200"  placeholder="请输入身份证号"/>
+								<input type="text" class="form-control inline input200" id="id_card" name="id_card" placeholder="请输入身份证号"/>
 							</td>
 						</tr>
 						<tr>
 							<td align="right">手机号：</td>
 							<td align="left">
-								<input type="text" class="form-control inline input150" placeholder="请输入手机号" />
+								<input type="text" class="form-control inline input150" id="phone" name="phone" placeholder="请输入手机号" />
 							</td>
 						</tr>
 						<tr>
 							<td align="right" width="120">email：</td>
 							<td align="left" width="40%">
-								<input type="text" class="form-control inline input150"  placeholder="请输入邮箱"/>
+								<input type="text" class="form-control inline input150" id="email" name="email"  placeholder="请输入邮箱"/>
 								<!-- <button type="button" class="btn btn_save2" onclick="showPopC('mem_choose')" style="width: auto;padding: 0px 5px;">选择</button> -->
 							</td>
 							<td align="right" width="160"></td>
@@ -118,7 +95,7 @@
 								<!-- <input type="text" class="form-control inline input150" placeholder="出生日期" /> -->
 								<div class="inline relative mr0">
 									<input type="text" class="form-control" style="width: 125px;"
-										id="sTime" name="sTime" readonly="readonly" placeholder="开始日期">
+										id="birthday" name="birthday" readonly="readonly" placeholder="出生日期">
 									<span class="date_icon" style="left: 94px;"><i></i></span>
 								</div>
 							</td> 
@@ -129,9 +106,9 @@
 								<!-- <input type="text" class="form-control inline input150" placeholder="入职日期" /> -->
 								
 								<div class="inline relative mr0">
-									<input type="text" class="form-control mr0" id="eTime"
-										name="eTime" style="width: 125px;" readonly="readonly" placeholder="结束日期"/>
-									<span class="date_icon" style="left: 94px;"><i></i></span>
+									<input type="text" class="form-control mr0" id="hire_date"
+										name="hire_date" style="width: 125px;" readonly="readonly" placeholder="入职日期"/>
+									<span class="date_icon\" style="left: 94px;"><i></i></span>
 								</div>
 							</td> 
 							
@@ -150,10 +127,13 @@
 									  <span class="caret"></span>
 									 <!--  <span class="sr-only">切换下拉菜单</span> -->
 								   </button>
-								   <ul class="dropdown-menu" >
+								   <ul class="dropdown-menu" id="education_degree">
 									<!--   <li><a value="-1" href="javascript:void(0);">请选择</a></li> -->
-									  <li><a value="1" href="javascript:void(0);">大学</a></li>
-									  <li><a value="2" href="javascript:void(0);">研究生</a></li>
+									  <li><a value="1" href="javascript:void(0);">高中</a></li>
+									  <li><a value="2" href="javascript:void(0);">大专</a></li>
+									  <li><a value="3" href="javascript:void(0);">大学</a></li>
+									  <li><a value="4" href="javascript:void(0);">研究生</a></li>
+									  <li><a value="5" href="javascript:void(0);">博士</a></li>
 								   </ul>
 							</div>
 							</td>
@@ -191,20 +171,7 @@
 						
 						
 						<tr>
-						<!-- 	<td align="right">居住地址：</td>
-							<td align="left" colspan="3">
-								<div id="jsAddress_0"  class="selectbox_l">
-									<input type="hidden" class="province" value=""/>
-									<input type="hidden" class="city" value="110100"/>
-									<input type="hidden" class="area" value="110108"/>
-									<div name="province" type="selectbox"  class="btn-group inline "></div>
-									<div name="city" type="selectbox"  class="btn-group inline"></div>
-									<div name="area" type="selectbox"  class="btn-group inline"></div>
-								</div>
-								<div class=" inline">
-									<input type="text" class="form-control input300" id="" placeholder="详细地址">
-								</div>
-							</td> -->
+						
 						</tr>
 					</table>
 				</div>

@@ -20,19 +20,7 @@
 	</head>
 	<body>
 		<body>
-		<!--遮罩层-->
-		<div class="zhy_zhezhao_pop " style="height: 800px; display: none;"></div>
-		<!--遮罩层 end-->
-		<div class="zhy_popa zhy_popa_cancel " style="width: 450px;margin-left: -225px;display: none;">
-			<p class="color66">提示<span class="pull-right close_icon" onclick="hidePopC()"></span></p>
-		  	<div class="pop_content">
-			    <p>确定要删除会员【张三】的数据吗?</p>
-			  	<div class="operate_btn pull-right"> 
-			  	    <button type="button" class="btn cancle_yes">确定</button>
-			        <button type="button" class="btn cancle_btn" onclick="hidePopC()">取消</button>
-			  	</div>
-		  	</div>
-		</div>
+		
 		<div class="main_content member_list">
 			<div class="col-xs-12 col-sm-12 div_bordered"> 
 		  		<div class="panel panel-default">
@@ -67,11 +55,9 @@
 								<button type="button" class="btn btn_white20" id="member_search">搜索</button>
 							</div>
 						</form> -->
-						<div>
-							<jsp:include page="/files/plugins/split_plugin_search_bar.jsp"/>
-						</div>
 						
 		      		</div>
+		      		<jsp:include page="/files/plugins/split_plugin_search_bar.jsp"/>
 					<table class="table table-bordered table_fixed table-multicols table-hover "> 
 						<thead> 
 						  <tr> 
@@ -100,10 +86,9 @@
 						 
 	                    </tbody> 
 					</table> 
-	        	</div>
-	        	<div id="splitBarDiv" style="float:right">
 					<jsp:include page="/files/plugins/split_plugin_page_bar.jsp"/>
-				</div>
+	        	</div>
+	        	
 		       <!--  <div class="row text-center">
 				    <ul id="member_pagination" class="pagination "><div class="pagination"><span class="current prev">上一页</span><span class="current">1</span><a href="javascript:InitTable(1)">2</a><a class="next" href="javascript:InitTable(1)">下一页</a><span class="allentries">共17条记录</span></div></ul>
 			    </div> -->

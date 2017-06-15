@@ -6,6 +6,8 @@ import org.apache.shiro.authz.annotation.Logical;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 
+import cn.mldn.dto.EmployeeInfoDto;
+
 
 public interface IEmployeeService {
 	/**
@@ -29,5 +31,8 @@ public interface IEmployeeService {
 	@RequiresRoles(value = {"emp"},logical =Logical.OR)
 	@RequiresPermissions(value = {"emp:list"},logical = Logical.OR)
 	public Map<String,Object> listSplit(Long currentPage,Integer lineSize,String column,String keyWord) ;
+	
+	
+	public boolean add(EmployeeInfoDto dto) ;
 	
 }
