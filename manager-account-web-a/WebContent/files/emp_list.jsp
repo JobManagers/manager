@@ -5,6 +5,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+<!-- <script type="text/javascript" src="js/plugins/split_page.js"></script> -->
+<script type="text/javascript" src="js/files/emp_list.js"></script>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Demo</title>
@@ -39,7 +41,7 @@
 			   				<a class=" btn_blueg2 font14 pull-right" href="emp_add.jsp">+新增</a>
 							<h4>员工管理</h4>
 						</div>
-				    	<form class="form-inline pl20" role="form">
+				    	<!-- <form class="form-inline pl20" role="form">
 							<div class="form-group">小组筛选：
 								<div class="btn-group inline ">
 								   <button type="button" class="btn btn-default dropdown-text" value="0"  style="width: 106px;">全部</button>
@@ -64,8 +66,11 @@
 							<div class="form-group">
 								<button type="button" class="btn btn_white20" id="member_search">搜索</button>
 							</div>
+						</form> -->
+						<div>
+							<jsp:include page="/files/plugins/split_plugin_search_bar.jsp"/>
+						</div>
 						
-						</form>
 		      		</div>
 					<table class="table table-bordered table_fixed table-multicols table-hover "> 
 						<thead> 
@@ -96,9 +101,12 @@
 	                    </tbody> 
 					</table> 
 	        	</div>
-		        <div class="row text-center">
+	        	<div id="splitBarDiv" style="float:right">
+					<jsp:include page="/files/plugins/split_plugin_page_bar.jsp"/>
+				</div>
+		       <!--  <div class="row text-center">
 				    <ul id="member_pagination" class="pagination "><div class="pagination"><span class="current prev">上一页</span><span class="current">1</span><a href="javascript:InitTable(1)">2</a><a class="next" href="javascript:InitTable(1)">下一页</a><span class="allentries">共17条记录</span></div></ul>
-			    </div>
+			    </div> -->
 	   		</div>
 	  	</div>  
 

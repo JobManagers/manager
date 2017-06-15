@@ -4,5 +4,5 @@ import cn.mldn.util.dao.IBaseDAO;
 import cn.mldn.vo.EmployeeInfo;
 
 public interface IEmployeeInfoDAO extends IBaseDAO<Long, EmployeeInfo> {
-
+	
 }
