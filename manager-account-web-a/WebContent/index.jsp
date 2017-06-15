@@ -75,7 +75,7 @@
 						
 						
 						<li class="on">
-						   <span><i class="icon_arrow_left"></i> 小组管理</span>
+						   <span><i class="icon_arrow_left"></i> 小组管理</span> 
 						   <ul class="second_left" style="display:block">
 						      	<li class="health_report"><a href="files/team_list.jsp" target="mainf"><i class="icon_account"></i><span>小组列表</span></a></li>			
 								
