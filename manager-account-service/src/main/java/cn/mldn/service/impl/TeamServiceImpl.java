@@ -16,12 +16,24 @@ public class TeamServiceImpl implements ITeamService {
 	private IEmployeeInfoDAO employeeInfoDAO;
 	@Resource
 	private ITeamDAO teamDAO;
+	/**
+	 * 1.1 实现了列表展示的功能
+	 */
 	@Override
 	public Map<String, Object> list() {
 		Map<String, Object> map = new HashMap<>();
 		map.put("allEmployees", this.employeeInfoDAO.findAll());
 		map.put("allTeams", this.teamDAO.findAll());
 		return map;
+	}
+	
+	/**
+	 * 1.2实现了模糊分页查询功能
+	 */
+	@Override
+	public Map<String, Object> getAllSplit(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -2,9 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.mldn.dao.ITeamDAO">
+<!--  1.1 进行team 页面的列表展示-->
 	<select id="findAll" resultType="Team">
 		select team_id,name,leader_id,create_id,
 		last_update_user_id,create_time,update_time,eid,last_update_no,
 		state from team;
+	</select>
+	<!--1.2 进行 team 页面的分页模糊查询  -->
+		<select id="findAllSplit" resultType="Team" parameterType="map">
+		SELECT team_id,name,leader_id,create_id,
+		last_update_user_id,create_time,update_time,eid,last_update_no,
+		state from team
+		<where>
+			locked!=0
+			<if test="column != null and keyWord != null">
+				AND ${column} LIKE #{keyWord}
+			</if>
+		</where>
+		ORDER BY hiredate DESC ,did
+		LIMIT #{start},#{lineSize}
 	</select>
 </mapper>
