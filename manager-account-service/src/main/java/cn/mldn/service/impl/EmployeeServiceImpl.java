@@ -30,21 +30,44 @@ public class EmployeeServiceImpl extends AbstractService implements IEmployeeSer
 	@Override
 	public Map<String, Object> listSplit(Long currentPage, Integer lineSize, String column,
 			String keyWord) {
+//		Map<String,Object> map = new HashMap<String,Object>();
+//		Map<String,Object> param = super.getParamMap(currentPage, lineSize, column, keyWord);
+//		map.put("allEmployees", this.employeeInfoDAO.findAllSplit(param));
+//		map.put("allRecorders", this.employeeInfoDAO.getAllCount(param)) ;
+//		List<Team> list = this.teamDAO.findAll() ;
+//		List<TeamDto> dtoList = new ArrayList<TeamDto>();
+//		Iterator<Team> iter = list.iterator(); 
+//		while(iter.hasNext()){
+//			Team team = iter.next();
+//			TeamDto teamDto = new TeamDto();
+//			BeanUtils.copyProperties(team, teamDto);
+//			dtoList.add(teamDto);
+//		}
+//		map.put("allTeams",dtoList) ;
+//		return map;
 		Map<String,Object> map = new HashMap<String,Object>();
 		Map<String,Object> param = super.getParamMap(currentPage, lineSize, column, keyWord);
-		map.put("allEmployees", this.employeeInfoDAO.findAllSplit(param));
-		map.put("allRecorders", this.employeeInfoDAO.getAllCount(param)) ;
-		List<Team> list = this.teamDAO.findAll() ;
+		List<EmployeeInfo> list = this.employeeInfoDAO.findAllSplit(param);
+		List<EmployeeInfoDto> listDto = new ArrayList<>();
+		Iterator<EmployeeInfo> iter = list.iterator();
+		while (iter.hasNext()) {
+			EmployeeInfoDto dto=new EmployeeInfoDto() ;
+			BeanUtils.copyProperties(iter.next(), dto) ;
+			listDto.add(dto) ; 
+		}
+		List<Team> list2 = this.teamDAO.findAll() ;
 		List<TeamDto> dtoList = new ArrayList<TeamDto>();
-		Iterator<Team> iter = list.iterator(); 
+		Iterator<Team> iter2 = list2.iterator(); 
 		while(iter.hasNext()){
-			Team team = iter.next();
+			Team team = iter2.next();
 			TeamDto teamDto = new TeamDto();
 			BeanUtils.copyProperties(team, teamDto);
 			dtoList.add(teamDto);
 		}
-		map.put("allTeams",dtoList);
-		return map;
+		map.put("allEmployees",listDto);
+		map.put("allRecorders", this.employeeInfoDAO.getAllCount(param)) ;
+		map.put("allTeams",dtoList) ;
+		return map ;
 	}
 	
 //	@Override
@@ -74,6 +97,29 @@ public class EmployeeServiceImpl extends AbstractService implements IEmployeeSer
 //		List<EmployeeInfoDto> allEmpdtos = super.listVoToDto(this.employeeInfoDAO.findAll());
 		map.put("allEmployees", allEmpdto);
 		return map;
+	}
+	
+	@Override
+	public Map<String, Object> addPre() {
+		Map<String,Object> map = new HashMap<String,Object>();
+		List<Team> list = this.teamDAO.findAll() ;
+		List<TeamDto> dtoList = new ArrayList<TeamDto>();
+		Iterator<Team> iter = list.iterator(); 
+		while(iter.hasNext()){
+			Team team = iter.next();
+			TeamDto teamDto = new TeamDto();
+			BeanUtils.copyProperties(team, teamDto);
+			dtoList.add(teamDto);
+		}
+		map.put("allTeams",dtoList) ;
+		return map ;
+	}
+	
+	@Override
+	public boolean add(EmployeeInfoDto dto) {
+		EmployeeInfo vo=new EmployeeInfo() ;
+		BeanUtils.copyProperties(dto, vo);
+		return this.employeeInfoDAO.doCreate(vo);
 	}
 
 }

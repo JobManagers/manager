@@ -5,7 +5,7 @@ import java.util.Date;
 
 @SuppressWarnings("serial")
 public class EmployeeInfo implements Serializable{
-	private Long id;
+	private Long eid;
 	private String name;
 	private String avatar;
 	private Integer sex;
@@ -23,11 +23,11 @@ public class EmployeeInfo implements Serializable{
 	private Integer last_update_no;
 	private Integer state;
 	private String email;
-	public Long getId() {
-		return id;
+	public Long getEid() {
+		return eid;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setEid(Long eid) {
+		this.eid = eid;
 	}
 	public String getName() {
 		return name;
@@ -133,12 +133,12 @@ public class EmployeeInfo implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "employee_info [id=" + id + ", name=" + name + ", avatar=" + avatar + ", sex=" + sex + ", phone=" + phone
-				+ ", id_card=" + id_card + ", birthday=" + birthday + ", hire_date=" + hire_date + ", dimission_date="
-				+ dimission_date + ", education_degree=" + education_degree + ", create_id=" + create_id
-				+ ", last_update_user_id=" + last_update_user_id + ", create_time=" + create_time + ", update_time="
-				+ update_time + ", team_id=" + team_id + ", last_update_no=" + last_update_no + ", state=" + state
-				+ ", email=" + email + "]";
+		return "EmployeeInfoDto [eid=" + eid + ", name=" + name + ", avatar=" + avatar + ", sex=" + sex + ", phone="
+				+ phone + ", id_card=" + id_card + ", birthday=" + birthday + ", hire_date=" + hire_date
+				+ ", dimission_date=" + dimission_date + ", education_degree=" + education_degree + ", create_id="
+				+ create_id + ", last_update_user_id=" + last_update_user_id + ", create_time=" + create_time
+				+ ", update_time=" + update_time + ", team_id=" + team_id + ", last_update_no=" + last_update_no
+				+ ", state=" + state + ", email=" + email + "]";
 	}
 	
 	

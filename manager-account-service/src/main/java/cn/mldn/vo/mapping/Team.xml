@@ -6,8 +6,8 @@
 
 
 	<select id="findAll" resultType="Team">
-		select id,name,leader_id,create_id,last_update_user_id,
-		create_time,update_time,team_id,last_update_no,state 
+		select team_id,name,leader_id,create_id,last_update_user_id,
+		create_time,update_time,eid,last_update_no,state 
 		from team
 	</select>
 
