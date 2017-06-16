@@ -25,7 +25,7 @@
 			   				<a class=" btn_blueg2 font14 pull-right" href="team_add.jsp">+新增</a>
 							<h4>小组管理</h4>
 						</div>
-				    	<form class="form-inline pl20" role="form">
+				   <!--  	<form class="form-inline pl20" role="form">
 							<div class="form-group">小组查询：
 							</div>
 							
@@ -39,7 +39,9 @@
 								<button type="button" class="btn btn_white20" id="member_search">搜索</button>
 							</div>
 						
-						</form>
+						</form> -->
+						<!--模糊查询组件  -->
+						<jsp:include page="/files/plugins/split_plugin_search_bar.jsp"/>
 		      		</div>
 					<table class="table table-bordered table_fixed table-multicols table-hover "> 
 						<thead> 
@@ -66,8 +68,8 @@
 						  <tr> 
 							<td>${team.team_id}</td> 
 							<td>${team.name}</td> 
-					 	<%-- <td>${team.leader_id}</td> --%>
- 						<td>${allEmployees[team.leader_id].name}</td>
+					 	<%--  <td>${team.leader_id}</td>  --%>
+ 						 <td>${allEmployees[team.leader_id]}</td> 
 							 
 							<td>
 								<span><a href="blood_chart.html" class="colorblue">详情</a></span>
@@ -91,7 +93,9 @@
 					</table> 
 	        	</div>
 		        <div class="row text-center">
-				    <ul id="member_pagination" class="pagination "><div class="pagination"><span class="current prev">上一页</span><span class="current">1</span><a href="javascript:InitTable(1)">2</a><a class="next" href="javascript:InitTable(1)">下一页</a><span class="allentries">共17条记录</span></div></ul>
+				  <!--   <ul id="member_pagination" class="pagination "><div class="pagination"><span class="current prev">上一页</span><span class="current">1</span><a href="javascript:InitTable(1)">2</a><a class="next" href="javascript:InitTable(1)">下一页</a><span class="allentries">共17条记录</span></div></ul> -->
+			    <!-- 分页组件 -->
+			    <jsp:include page="/files/plugins/split_plugin_page_bar.jsp"/>
 			    </div>
 	   		</div>
 	  	</div>  

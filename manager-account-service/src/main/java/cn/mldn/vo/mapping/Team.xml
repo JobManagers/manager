@@ -14,12 +14,19 @@
 		last_update_user_id,create_time,update_time,eid,last_update_no,
 		state from team
 		<where>
-			locked!=0
 			<if test="column != null and keyWord != null">
-				AND ${column} LIKE #{keyWord}
+				 ${column} LIKE #{keyWord}
 			</if>
 		</where>
-		ORDER BY hiredate DESC ,did
 		LIMIT #{start},#{lineSize}
+	</select>
+	<!--1.2 进行team 页面的查询的总数的统计  -->
+	<select id="getAllCount" parameterType="map" resultType="long">
+		select count(*) from team
+		<where>
+			<if test="column != null and keyword != null">
+				${column} like #{keyWord}
+			</if>
+		</where>
 	</select>
 </mapper>
