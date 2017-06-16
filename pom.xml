@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>cn.mldn</groupId>
@@ -26,7 +27,7 @@
 		<mysql-version>5.1.29</mysql-version>
 		<logback-version>1.1.3</logback-version>
 		<org.slf4j-version>1.7.5</org.slf4j-version>
-		
+
 		<commons-beanutils-version>1.9.1</commons-beanutils-version>
 		<commons-lang3-version>3.1</commons-lang3-version>
 		<!-- Shiro开发包 -->
@@ -40,8 +41,10 @@
 		<!-- Redis相关组件包版本 -->
 		<jedis.version>2.9.0</jedis.version>
 		<sprintdata.version>1.8.3.RELEASE</sprintdata.version>
-		
-		
+		<!-- 上传相关组件 -->
+		<commons-collections.version>3.2.2</commons-collections.version>
+		<commons-fileupload.version>1.3.2</commons-fileupload.version>
+
 		<spring.version>4.3.8.RELEASE</spring.version>
 		<aspectj-version>1.7.0</aspectj-version>
 	</properties>
@@ -53,8 +56,18 @@
 				<artifactId>manager-account-api</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
-			
-			
+
+			<dependency>
+				<groupId>commons-collections</groupId>
+				<artifactId>commons-collections</artifactId>
+				<version>${commons-collections.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-fileupload</groupId>
+				<artifactId>commons-fileupload</artifactId>
+				<version>${commons-fileupload.version}</version>
+			</dependency>
+
 			<dependency>
 				<groupId>redis.clients</groupId>
 				<artifactId>jedis</artifactId>
@@ -118,7 +131,7 @@
 				<artifactId>jstl</artifactId>
 				<version>${jstl.version}</version>
 			</dependency>
-			
+
 			<!--Druid连接池 -->
 			<dependency>
 				<groupId>com.alibaba</groupId>
@@ -401,12 +414,12 @@
 			</plugin>
 		</plugins>
 	</build>
- 
+
 	<modules>
 		<module>manager--account-api</module>
-    <module>manager-account-service</module>
-    <module>manager-account-test</module>
-    <module>manager-account-web</module>
-    <module>manager-account-web-a</module>
-  </modules>
+		<module>manager-account-service</module>
+		<module>manager-account-test</module>
+		<module>manager-account-web</module>
+		<module>manager-account-web-a</module>
+	</modules>
 </project>

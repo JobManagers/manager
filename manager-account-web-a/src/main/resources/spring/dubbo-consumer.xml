@@ -16,6 +16,6 @@
 	<dubbo:application name="${dubbo.application.name}" />
 	<dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" />
 	<dubbo:monitor protocol="registry" />
-	<dubbo:reference id="memberApi" interface="cn.mldn.api.IMemberService"
-		version="${dubbo.version}" />
+	<dubbo:reference id="memberApi" interface="cn.mldn.api.IMemberService" version="${dubbo.version}" />
+	<dubbo:reference id="employeeApi" interface="cn.mldn.api.IEmployeeService" version="${dubbo.version}" />
 </beans>

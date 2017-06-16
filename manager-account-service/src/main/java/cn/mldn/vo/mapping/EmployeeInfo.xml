@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.mldn.dao.IEmployeeInfoDAO">
+	
+	
+	
+	
+	<select id="getAllCount" parameterType="map" resultType="long">
+		select count(*) from employee_info
+		<where>
+			<if test="column != null and keyword != null">
+				${column} like #{keyWord}
+			</if>
+		</where>
+	</select>
+	
+	<select id="findAllSplit" parameterType="map" resultType="EmployeeInfo">
+		select id,name,avatar,sex,phone,id_card,birthday,hire_date,dimission_date,education_degree,
+		create_id,last_update_user_id,create_time,update_time,team_id,last_update_no,state,email 
+		from employee_info 
+		<where>
+			<if test="column != null and keyword != null">
+				${column} like #{keyWord} 
+			</if>
+		</where>
+		limit #{start},#{lineSize}
+	</select>
+	
+	<select id="findAll" resultType="EmployeeInfo">
+		select id,name,avatar,sex,phone,id_card,birthday,hire_date,dimission_date,education_degree,
+		create_id,last_update_user_id,create_time,update_time,team_id,last_update_no,state,email from 
+		employee_info
+	</select>
+	
+</mapper>

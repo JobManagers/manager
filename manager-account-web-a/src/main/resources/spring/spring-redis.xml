@@ -48,7 +48,7 @@
 	<bean id="connectionFactory0" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
 		<property name="database" value="0"/>
 		<property name="poolConfig" ref="jedisPoolConfig"/>  <!-- 引用进行连接池的配置项 -->
-		<property name="hostName" value="192.168.171.130"/>	<!-- Redis的连接地址 -->
+		<property name="hostName" value="192.168.28.161"/>	<!-- Redis的连接地址 -->
 		<property name="password" value="mldnjava"/>	<!-- 定义的是连接密码，认证密码 -->
 		<property name="timeout" value="2000"/>	<!-- 连接的超时时间 -->
 	</bean>
@@ -56,7 +56,7 @@
 	<bean id="connectionFactory1" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
 		<property name="database" value="1"/>
 		<property name="poolConfig" ref="jedisPoolConfig"/>  <!-- 引用进行连接池的配置项 -->
-		<property name="hostName" value="192.168.171.130"/>	<!-- Redis的连接地址 -->
+		<property name="hostName" value="192.168.28.161"/>	<!-- Redis的连接地址 -->
 		<property name="password" value="mldnjava"/>	<!-- 定义的是连接密码，认证密码 -->
 		<property name="timeout" value="2000"/>	<!-- 连接的超时时间 -->
 	</bean>
