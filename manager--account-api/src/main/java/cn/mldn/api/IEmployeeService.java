@@ -32,7 +32,17 @@ public interface IEmployeeService {
 	@RequiresPermissions(value = {"emp:list"},logical = Logical.OR)
 	public Map<String,Object> listSplit(Long currentPage,Integer lineSize,String column,String keyWord) ;
 	
+	/**
+	 * 雇员增加前的准具
+	 * @return 所有的小祖名
+	 */
+	public Map<String,Object> addPre() ;
 	
+	/**
+	 * 雇员增加
+	 * @param dto 传入的雇员dto
+	 * @return 增加成功返回true
+	 */
 	public boolean add(EmployeeInfoDto dto) ;
 	
 }

@@ -49,8 +49,17 @@ public class EmployeeAction extends AbstractBaseAction {
 		ModelAndView mav = new ModelAndView(super.getMsg("emp.list.page"));
 		ActionSplitPageUtil aspu=new ActionSplitPageUtil( null, super.getMsg("emp.list.action"),request) ;
 		Map<String ,Object> map=this.employeeService.listSplit(aspu.getCurrentPage(), aspu.getLineSize(), "name", aspu.getKeyWord()) ;
-		System.err.println(map);
 		mav.addAllObjects(map);		
+		return mav ;
+	}
+	
+	@RequestMapping("emp_addpre")
+	@RequiresUser
+	@RequiresRoles(value = {"emp"},logical =Logical.OR)
+	@RequiresPermissions(value = {"emp:add"},logical = Logical.OR)
+	public ModelAndView addPre(){
+		ModelAndView mav = new ModelAndView(super.getMsg("emp.add.page")) ;
+		mav.addAllObjects(this.employeeService.addPre());	
 		return mav ;
 	}
 	
@@ -63,7 +72,7 @@ public class EmployeeAction extends AbstractBaseAction {
 		}
 		if(this.employeeService.add(dto)){
 			if(!(pic==null || pic.isEmpty())){
-				fu.saveFile(request, "upload/goods/", dto.getAvatar()) ;
+				fu.saveFile(request, "upload/emp/", dto.getAvatar()) ;
 			}
 			super.setUrlAndMsg(request, "emp.add.action", "emp.add.success", FLAG);
 		}else{

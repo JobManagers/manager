@@ -55,8 +55,18 @@ public class EmployeeServiceImpl extends AbstractService implements IEmployeeSer
 			BeanUtils.copyProperties(iter.next(), dto) ;
 			listDto.add(dto) ; 
 		}
+		List<Team> list2 = this.teamDAO.findAll() ;
+		List<TeamDto> dtoList = new ArrayList<TeamDto>();
+		Iterator<Team> iter2 = list2.iterator(); 
+		while(iter.hasNext()){
+			Team team = iter2.next();
+			TeamDto teamDto = new TeamDto();
+			BeanUtils.copyProperties(team, teamDto);
+			dtoList.add(teamDto);
+		}
 		map.put("allEmployees",listDto);
 		map.put("allRecorders", this.employeeInfoDAO.getAllCount(param)) ;
+		map.put("allTeams",dtoList) ;
 		return map ;
 	}
 	
@@ -87,6 +97,22 @@ public class EmployeeServiceImpl extends AbstractService implements IEmployeeSer
 //		List<EmployeeInfoDto> allEmpdtos = super.listVoToDto(this.employeeInfoDAO.findAll());
 		map.put("allEmployees", allEmpdto);
 		return map;
+	}
+	
+	@Override
+	public Map<String, Object> addPre() {
+		Map<String,Object> map = new HashMap<String,Object>();
+		List<Team> list = this.teamDAO.findAll() ;
+		List<TeamDto> dtoList = new ArrayList<TeamDto>();
+		Iterator<Team> iter = list.iterator(); 
+		while(iter.hasNext()){
+			Team team = iter.next();
+			TeamDto teamDto = new TeamDto();
+			BeanUtils.copyProperties(team, teamDto);
+			dtoList.add(teamDto);
+		}
+		map.put("allTeams",dtoList) ;
+		return map ;
 	}
 	
 	@Override
