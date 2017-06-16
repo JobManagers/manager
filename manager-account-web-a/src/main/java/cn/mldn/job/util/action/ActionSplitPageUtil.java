@@ -2,7 +2,7 @@ package cn.mldn.job.util.action;
 import javax.servlet.http.HttpServletRequest;
 public class ActionSplitPageUtil {
 	private long currentPage = 1;
-	private long lineSize = 3;
+	private long lineSize = 10;
 	private String column;
 	private String keyWord;
 	private HttpServletRequest request;
