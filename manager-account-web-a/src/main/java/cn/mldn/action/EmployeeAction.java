@@ -57,6 +57,7 @@ public class EmployeeAction extends AbstractBaseAction {
 		List<TeamDto> allTeams = (List<TeamDto>) map.get("allTeams");
 		Iterator<TeamDto> iter = allTeams.iterator();
 		Map<Long,Object> teamMap = new HashMap<Long,Object>();
+		System.out.println(map);
 		while(iter.hasNext()){
 			TeamDto dto = iter.next();
 			teamMap.put(dto.getTeam_id(),dto.getName());
@@ -64,6 +65,8 @@ public class EmployeeAction extends AbstractBaseAction {
 		mav.addObject("allTeams", teamMap);
 		return mav ;
 	}
+	
+	 
 	
 	@RequestMapping("emp_addpre")
 	@RequiresUser

@@ -75,4 +75,12 @@ public class Team implements Serializable{
 	public void setState(Integer state) {
 		this.state = state;
 	}
+	@Override
+	public String toString() {
+		return "Team [team_id=" + team_id + ", name=" + name + ", leader_id=" + leader_id
+				+ ", create_id=" + create_id + ", last_update_user_id=" + last_update_user_id
+				+ ", create_time=" + create_time + ", update_time=" + update_time + ", eid=" + eid
+				+ ", last_update_no=" + last_update_no + ", state=" + state + "]";
+	}
+	
 }

@@ -44,7 +44,7 @@ public class EmployeeServiceImpl extends AbstractService implements IEmployeeSer
 		List<Team> list2 = this.teamDAO.findAll() ;
 		List<TeamDto> dtoList = new ArrayList<TeamDto>();
 		Iterator<Team> iter2 = list2.iterator(); 
-		while(iter.hasNext()){
+		while(iter2.hasNext()){
 			Team team = iter2.next();
 			TeamDto teamDto = new TeamDto();
 			BeanUtils.copyProperties(team, teamDto);
@@ -53,6 +53,7 @@ public class EmployeeServiceImpl extends AbstractService implements IEmployeeSer
 		map.put("allEmployees",listDto);
 		map.put("allRecorders", this.employeeInfoDAO.getAllCount(param)) ;
 		map.put("allTeams",dtoList) ;
+		System.err.println(map);
 		return map ;
 	}
 	
@@ -61,15 +62,24 @@ public class EmployeeServiceImpl extends AbstractService implements IEmployeeSer
 	@Override
 	public Map<String, Object> list() {
 		Map<String, Object> map = new HashMap<String, Object>();
-		List<EmployeeInfo> allEmp = this.employeeInfoDAO.findAll();
-		List<EmployeeInfoDto> allEmpdto = new ArrayList<EmployeeInfoDto>();
-		Iterator<EmployeeInfo> iter = allEmp.iterator();
-		while(iter.hasNext()){
-			EmployeeInfoDto empDto = new EmployeeInfoDto();
-			BeanUtils.copyProperties(iter.next(), empDto);
-			allEmpdto.add(empDto);
+//		List<EmployeeInfo> allEmp = this.employeeInfoDAO.findAll();
+//		List<EmployeeInfoDto> allEmpdto = new ArrayList<EmployeeInfoDto>();
+//		Iterator<EmployeeInfo> iter = allEmp.iterator();
+//		while(iter.hasNext()){
+//			EmployeeInfoDto empDto = new EmployeeInfoDto();
+//			BeanUtils.copyProperties(iter.next(), empDto);
+//			allEmpdto.add(empDto);
+//		}
+		List<Team> list2 = this.teamDAO.findAll() ;
+		List<TeamDto> dtoList = new ArrayList<TeamDto>();
+		Iterator<Team> iter2 = list2.iterator(); 
+		while(iter2.hasNext()){
+			Team team = iter2.next();
+			TeamDto teamDto = new TeamDto();
+			BeanUtils.copyProperties(team, teamDto);
+			dtoList.add(teamDto);
 		}
-		map.put("allEmployees", allEmpdto);
+		map.put("allTeams",dtoList) ;
 		return map;
 	}
 	
@@ -86,6 +96,7 @@ public class EmployeeServiceImpl extends AbstractService implements IEmployeeSer
 			dtoList.add(teamDto);
 		}
 		map.put("allTeams",dtoList) ;
+		System.err.println(map);
 		return map ;
 	}
 	
