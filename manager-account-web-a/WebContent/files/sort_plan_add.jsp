@@ -94,7 +94,7 @@
 				<div class="panel-heading color333">新增排班方案</div>
 				<div class="divider"></div>
 				<form class="form-horizontal old_block"
-					action="../shiftPlan/addShiftPlan" id="addShiftPlanForm"
+					action="planadd.action" id="addShiftPlanForm"
 					role="form" data-ajax="true"
 					data-ajax-success="shiftPlanAddOnSuccess" method="post">
 					<div id="hiddenDiv"></div>
@@ -151,10 +151,10 @@
 								</tr>
 							</thead>
 							<tbody id="myTbody">
-								<tr class="shift_tr" id="1_tr">
-									<td><input type="hidden" name="detail_name" value="休"></td>
-									<td><input type="hidden" name="start_time" id="start_time" value=" "></td>
-									<td><input type="hidden" name="end_time" id="end_time"value=" "></td>
+								<!-- <tr class="shift_tr" id="1_tr">
+									<td><input type="text" name="detail_name" value="休"></td>
+									<td><input type="text" name="start_time" id="start_time" value=" "></td>
+									<td><input type="text" name="end_time" id="end_time"value=" "></td>
 									<td><input type="text" class="form-control input80 "
 										name="days" onblur="validateDays(this.value,this)" value="1"
 										placeholder="连续天数" /></td>
@@ -162,8 +162,8 @@
 											class="colorblue">上移</a></span> <span><a
 											href="javascript:goDown('1')" class="colorblue">下移</a></span></td>
 									<td><input type="text" id="1_input"
-										class="form-control input100" name="excOrder" value=" " /></td>
-								</tr>
+										class="form-control input100" name="excOrder" value="1" /></td>
+								</tr> -->
 							</tbody>
 
 						</table>
@@ -286,9 +286,9 @@
 		}
 		var newInt = parseInt(trLength + 1);
 		var contentX = '<tr class="shift_tr" id="'+newInt+'_tr">'
-				+ '<td><input type="text" class="form-control input100" name="detailName" onblur="validateName(this.value,this)" placeholder="班次名称" /></td>'
-				+ '<td><input type="text" class="form-control input100 selcTime" name="startTime" value="00:00" onblur="validateTime(this.value,this)" placeholder="开始时间"/></td>'
-				+ '<td><input type="text" class="form-control input100 selcTime" name="endTime" value="00:00" onblur="validateTime(this.value,this)" placeholder="结束时间" /></td>'
+				+ '<td><input type="text" class="form-control input100" name="detail_name" onblur="validateName(this.value,this)" placeholder="班次名称" /></td>'
+				+ '<td><input type="text" class="form-control input100 selcTime" name="start_time" value="00:00" onblur="validateTime(this.value,this)" placeholder="开始时间"/></td>'
+				+ '<td><input type="text" class="form-control input100 selcTime" name="end_time" value="00:00" onblur="validateTime(this.value,this)" placeholder="结束时间" /></td>'
 				+ '<td><input type="text" class="form-control input100 " name="days" value="1" onblur="validateDays(this.value,this)" placeholder="连续天数" /></td>'
 				+ '<td>'
 				+ '<span><a href="javascript:goUp(\''
@@ -297,7 +297,7 @@
 				+ '<span><a href="javascript:goDown(\''
 				+ newInt
 				+ '\')" class="colorblue">下移</a></span>'
-				+ '<input type="hidden" class="form-control input100" id="'+newInt+'_input" name="excOrder" value="'+newInt+'" /></td>'
+				+ '<input type="hidden" class="form-control input100" id="'+newInt+'_input" name="exc_order" value="'+newInt+'" /></td>'
 				+ '<td><i class="delete_icon" style="margin-left:5px;" onclick="removeItem(this,'
 				+ newInt + ')"></i></td>' + '</tr>'
 		$("#myTbody").append(contentX);

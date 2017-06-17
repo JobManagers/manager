@@ -5,8 +5,7 @@
 
 	<insert id="doCreate" parameterType="ShiftPlanBase"
 		useGeneratedKeys="true" keyProperty="shift_plan_detail_id">
-		insert into shift_plan_detail
-		(shift_plan_base_id,detail_name,start_time,end_time,days,exc_order
-		) values (?,?,?,?,?,?);
+		INSERT INTO shift_plan_detail (shift_plan_base_id,detail_name,start_time,end_time,days,exc_order) 
+		VALUES(#{shift_plan_detail_id},#{shift_plan_base_id},#{detail_name},#{start_time},#{end_time},#{days},#{exc_order})
 	</insert>
 </mapper>
