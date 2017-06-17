@@ -68,8 +68,8 @@
 						  <tr> 
 							<td>${team.team_id}</td> 
 							<td>${team.name}</td> 
-					 	<%--  <td>${team.leader_id}</td>  --%>
- 						 <td>${allEmployees[team.leader_id]}</td> 
+					 	  <%-- <td>${team.leader_id}</td>   --%>
+ 						 <td>${allEmployees[team.leader_id].name}</td>  
 							 
 							<td>
 								<span><a href="blood_chart.html" class="colorblue">详情</a></span>
