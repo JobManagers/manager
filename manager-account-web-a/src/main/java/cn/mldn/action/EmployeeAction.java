@@ -1,5 +1,8 @@
 package cn.mldn.action;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -16,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import cn.mldn.api.IEmployeeService;
 import cn.mldn.dto.EmployeeInfoDto;
+import cn.mldn.dto.TeamDto;
 import cn.mldn.util.action.abs.AbstractBaseAction;
 import cn.mldn.util.web.ActionSplitPageUtil;
 import cn.mldn.util.web.FileUtils;
@@ -49,7 +53,15 @@ public class EmployeeAction extends AbstractBaseAction {
 		ModelAndView mav = new ModelAndView(super.getMsg("emp.list.page"));
 		ActionSplitPageUtil aspu=new ActionSplitPageUtil( null, super.getMsg("emp.list.action"),request) ;
 		Map<String ,Object> map=this.employeeService.listSplit(aspu.getCurrentPage(), aspu.getLineSize(), "name", aspu.getKeyWord()) ;
-		mav.addAllObjects(map);		
+		mav.addAllObjects(map);	
+		List<TeamDto> allTeams = (List<TeamDto>) map.get("allTeams");
+		Iterator<TeamDto> iter = allTeams.iterator();
+		Map<Long,Object> teamMap = new HashMap<Long,Object>();
+		while(iter.hasNext()){
+			TeamDto dto = iter.next();
+			teamMap.put(dto.getTeam_id(),dto.getName());
+		}
+		mav.addObject("allTeams", teamMap);
 		return mav ;
 	}
 	

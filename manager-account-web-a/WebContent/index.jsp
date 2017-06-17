@@ -26,6 +26,9 @@
 	</script>
 <%!
 	public static final String EMP_LIST_USR = "files/emp_list.action";
+	public static final String EMP_TEAM_LIST_USR = "files/emp_list.action";
+	public static final String SHIFT_PLAN_LIST_USR = "files/emp_list.action";
+	public static final String SHIFT_TABLE_LIST_USR = "files/emp_list.action";
 %>	
 	</head>
 	<body class="wid_1130" style="background: #edf0f2 url(img/left_bg.jpg) repeat-y 0px 0px;overflow: hidden;" >
@@ -77,15 +80,15 @@
 						<li class="on">
 						   <span><i class="icon_arrow_left"></i> 小组管理</span> 
 						   <ul class="second_left" style="display:block">
-						      	<li class="health_report"><a href="http://192.168.28.97:8080/manager-account-web-a/files/team_list.action" target="mainf"><i class="icon_account"></i><span>小组列表</span></a></li>			
+						      	<li class="health_report"><a href="EMP_TEAM_LIST_USR" target="mainf"><i class="icon_account"></i><span>小组列表</span></a></li>			
 								
 						   </ul>
 						</li>
 						<li class="on">
 						   <span><i class="icon_arrow_left"></i> 排班方案管理</span>
 						   <ul class="second_left" style="display:block">
-						      	<li class="health_report"><a href="http://192.168.28.156/manager-account-web-a/files/planlist.action" target="mainf"><i class="icon_account"></i><span>排班方案管理</span></a></li>
-								<li class="health_report"><a href="http://192.168.28.156/manager-account-web-a/files/sort_manager_table_list.jsp" target="mainf"><i class="icon_account"></i><span>排班表管理</span></a></li>
+						      	<li class="health_report"><a href="<%=SHIFT_PLAN_LIST_USR %>" target="mainf"><i class="icon_account"></i><span>排班方案管理</span></a></li>
+								<li class="health_report"><a href="<%=SHIFT_TABLE_LIST_USR %>" target="mainf"><i class="icon_account"></i><span>排班表管理</span></a></li>
 																
 						   </ul>
 						</li>

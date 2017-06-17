@@ -5,21 +5,21 @@ import java.util.Date;
 
 @SuppressWarnings("serial")
 public class Team implements Serializable{
-	private Long id;
+	private Long team_id;
 	private String name;
 	private Long leader_id;
 	private Long create_id;
 	private String last_update_user_id;
 	private Date create_time;
 	private Date update_time;
-	private Long team_id;
+	private Long eid;
 	private Integer last_update_no;
 	private Integer state;
-	public Long getId() {
-		return id;
+	public Long getTeam_id() {
+		return team_id;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setTeam_id(Long team_id) {
+		this.team_id = team_id;
 	}
 	public String getName() {
 		return name;
@@ -57,11 +57,11 @@ public class Team implements Serializable{
 	public void setUpdate_time(Date update_time) {
 		this.update_time = update_time;
 	}
-	public Long getTeam_id() {
-		return team_id;
+	public Long getEid() {
+		return eid;
 	}
-	public void setTeam_id(Long team_id) {
-		this.team_id = team_id;
+	public void setEid(Long eid) {
+		this.eid = eid;
 	}
 	public Integer getLast_update_no() {
 		return last_update_no;
@@ -75,14 +75,4 @@ public class Team implements Serializable{
 	public void setState(Integer state) {
 		this.state = state;
 	}
-	@Override
-	public String toString() {
-		return "Team [id=" + id + ", name=" + name + ", leader_id=" + leader_id + ", create_id=" + create_id
-				+ ", last_update_user_id=" + last_update_user_id + ", create_time=" + create_time + ", update_time="
-				+ update_time + ", team_id=" + team_id + ", last_update_no=" + last_update_no + ", state=" + state
-				+ "]";
-	}
-	
-	
-	
 }
