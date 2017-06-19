@@ -17,7 +17,12 @@
 			<groupId>cn.mldn</groupId>
 			<artifactId>manager-account-api</artifactId>
 		</dependency>
-
+		<!-- fastDFS相关组件包 s -->
+		<dependency>
+			<groupId>com.github.kischang</groupId>
+			<artifactId>fastdfs-client</artifactId>
+		</dependency>
+		<!-- fastDFS相关组件包 e -->
 		<!-- AnnotationMethodHandlerAdapter 依赖 -->
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
