@@ -5,13 +5,14 @@
 
 	<groupId>cn.mldn</groupId>
 	<artifactId>manager</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<packaging>pom</packaging>
 
 	<name>mldn-parent</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
+		<project.artifactId>manager</project.artifactId><!-- 项目名 -->
 		<profiles.dir>src/main/profiles</profiles.dir><!--profie根目录 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> <!-- 构建编码 -->
 		<druid.version>1.0.0</druid.version>
@@ -55,7 +56,7 @@
 			<dependency>
 				<groupId>cn.mldn</groupId>
 				<artifactId>manager-account-api</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
+				<version>0.0.1</version>
 			</dependency>
 			<!-- fastDFS相关组件包 s-->
 			<dependency>
@@ -393,21 +394,22 @@
 				</configuration>
 
 			</plugin>
-			<plugin>
+			<!-- <plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<configuration>
-					<descriptor>src/main/assembly/assembly.xml</descriptor><!--描述文件路径 -->
+					<descriptor>src/main/assembly/assembly.xml</descriptor>描述文件路径
 				</configuration>
 				<executions>
 					<execution>
 						<id>make-assembly</id>
-						<phase>package</phase><!-- 绑定到package生命周期阶段上 -->
+						<phase>package</phase>绑定到package生命周期阶段上
 						<goals>
 							<goal>single</goal>
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin> -->
+			
 			<plugin>
 				<artifactId>maven-jar-plugin</artifactId>
 				<configuration>
@@ -425,8 +427,6 @@
 	<modules>
 		<module>manager--account-api</module>
 		<module>manager-account-service</module>
-		<module>manager-account-test</module>
-		<module>manager-account-web</module>
 		<module>manager-account-web-a</module>
 	</modules>
 </project>

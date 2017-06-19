@@ -6,7 +6,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/profiles/dev"/>
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
-        <dependent-module archiveName="manager-account-api-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/manager-account-api/manager-account-api">
+        <dependent-module archiveName="manager-account-api-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/manager-account-api/manager-account-api">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="manager-account-web-a"/>

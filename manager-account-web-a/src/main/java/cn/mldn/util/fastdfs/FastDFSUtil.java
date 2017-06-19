@@ -15,12 +15,14 @@ import org.csource.fastdfs.TrackerServer;
 import org.springframework.core.io.ClassPathResource;
 
 public class FastDFSUtil {
+
 	/**
 	 * 图片服务器删除类
 	 * @param group 图片所在服务器组名称：group1 ...
 	 * @param path 图片路径，类似：M00/00/00/wKgcollHN3OADl06AALyUUgDuec268.jpg
+	 * @return 删除成功返回0
 	 */
-	public static void FastDFSDelete(String group,String path) {
+	public static Integer FastDFSDelete(String group,String path) {
 		// 通过ClassPath路径获取要使用的配置文件
 		ClassPathResource classPathResource = new ClassPathResource("fastdfs_client.conf");
 		// 进行客户端访问的整体配置，需要知道配置文件的完整路径
@@ -67,13 +69,15 @@ public class FastDFSUtil {
 			System.out.println("tarckerServer close Exception");
 			e.printStackTrace();
 		}
+		return delete_file;
 	}
 	/**
 	 * 图片服务器上传工具类
 	 * @param filePath 图片所在路径，格式"C:\\Users\\123\\xxx.jpg","\\"为转移字符
+	 * @return 返回的数组分别为图片在服务器上保存的 组 group 和  图片path
 	 * @throws Exception 异常
 	 */
-	public static void FastDFSUpload(String filePath) throws Exception {
+	public static String [] FastDFSUpload(String filePath) throws Exception {
 		String drive = filePath.substring(0, 2); // 表示盘符
 		File imgFile = null; // 需要上传的文件
 		if ("/".contains(filePath)) { // 此为window路径格式
@@ -123,5 +127,6 @@ public class FastDFSUtil {
 		String[] upload_file = storageClient.upload_file(imgFile.getPath(), fileExtName, metaList);
 		System.out.println(Arrays.toString(upload_file));
 		trackerServer.close();
+		return upload_file;
 	}
 }

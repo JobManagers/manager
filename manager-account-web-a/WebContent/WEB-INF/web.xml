@@ -5,19 +5,19 @@
 	id="WebApp_ID" version="3.1">
 	<display-name>shiro-ssm</display-name>
 	<!-- 防 XSS -->
-	<context-param>
+	<!-- <context-param>
 		<param-name>defaultHtmlEscape</param-name>
 		<param-value>true</param-value>
-	</context-param>
+	</context-param> -->
 
 	<!-- HttpOnly标识是一个可选的、避免利用XSS（Cross-Site Scripting)来获取session cookie的标识。 -->
 	<!-- XSS攻击最常见一个的目标是通过获取的session cookie来劫持受害者的session；使用HttpOnly标识是一种很有用的保护机制。 -->
-	<session-config>
+	<!-- <session-config>
 		<cookie-config>
 			<http-only>true</http-only>
 			<secure>true</secure>
 		</cookie-config>
-	</session-config>
+	</session-config> -->
 
 
 	<!-- 配置要使用的Spring容器监听器 -->

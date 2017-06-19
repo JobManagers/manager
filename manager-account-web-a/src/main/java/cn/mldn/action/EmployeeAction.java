@@ -14,7 +14,6 @@ import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.authz.annotation.RequiresUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import cn.mldn.api.IEmployeeService;
@@ -22,7 +21,6 @@ import cn.mldn.dto.EmployeeInfoDto;
 import cn.mldn.dto.TeamDto;
 import cn.mldn.util.action.abs.AbstractBaseAction;
 import cn.mldn.util.web.ActionSplitPageUtil;
-import cn.mldn.util.web.FileUtils;
 @Controller
 @RequestMapping("/files/*")
 public class EmployeeAction extends AbstractBaseAction {
@@ -79,20 +77,24 @@ public class EmployeeAction extends AbstractBaseAction {
 	}
 	
 	@RequestMapping("emp_add")
-	public String add(EmployeeInfoDto dto,MultipartFile pic, HttpServletRequest request)throws Exception{
-		FileUtils fu=null ;
-		if(!(pic ==null || pic.isEmpty())){
-			fu=new FileUtils(pic) ;
-			dto.setAvatar(fu.createFileName());
-		}
-		if(this.employeeService.add(dto)){
-			if(!(pic==null || pic.isEmpty())){
-				fu.saveFile(request, "upload/emp/", dto.getAvatar()) ;
-			}
-			super.setUrlAndMsg(request, "emp.add.action", "emp.add.success", FLAG);
-		}else{
-			super.setUrlAndMsg(request, "emp.add.action", "emp.add.failure", FLAG);
-		}
-		return super.getMsg("forward.page") ;
+	@RequiresUser
+	@RequiresRoles(value = {"emp"},logical =Logical.OR)
+	@RequiresPermissions(value = {"emp:add"},logical = Logical.OR)
+	public ModelAndView addEmp(EmployeeInfoDto dto)throws Exception{
+//		FileUtils fu=null ;
+//		if(!(pic ==null || pic.isEmpty())){
+//			fu=new FileUtils(pic) ;
+//			dto.setAvatar(fu.createFileName());
+//		}
+//		if(this.employeeService.add(dto)){
+//			if(!(pic==null || pic.isEmpty())){
+//				fu.saveFile(request, "upload/emp/", dto.getAvatar()) ;
+//			}
+//			super.setUrlAndMsg(request, "emp.add.action", "emp.add.success", FLAG);
+//		}else{
+//			super.setUrlAndMsg(request, "emp.add.action", "emp.add.failure", FLAG);
+//		}
+		System.out.println(dto);
+		return null ;
 	}
 }

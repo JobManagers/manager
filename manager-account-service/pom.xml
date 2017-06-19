@@ -6,11 +6,15 @@
 	<parent>
 		<groupId>cn.mldn</groupId>
 		<artifactId>manager</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.1</version>
 	</parent>
 	<artifactId>manager-account-service</artifactId>
 	<name>manager-account-service</name>
 	<url>http://maven.apache.org</url>
+	<properties>
+		<project.artifactId>manager-account-service</project.artifactId><!-- 项目名 -->
+		<profiles.dir>src/main/profiles</profiles.dir><!--profie根目录 -->
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>cn.mldn</groupId>
@@ -152,47 +156,38 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
-			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
-			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
-			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
-			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
-			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aspects</artifactId>
-			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
-			<version>${spring.version}</version>
 		</dependency>
 		<!-- Spring AOP所要用到的包 -->
 		<dependency>
@@ -200,4 +195,90 @@
 			<artifactId>aspectjweaver</artifactId>
 		</dependency>
 	</dependencies>
+	
+	
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<profile.dir>${profiles.dir}/dev</profile.dir>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault><!-- 默认激活 -->
+			</activation>
+		</profile>
+		<profile>
+			<id>beta-gn</id>
+			<properties>
+				<profile.dir>${profiles.dir}/beta</profile.dir>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>product</id>
+			<properties>
+				<profile.dir>${profiles.dir}/product</profile.dir>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+	</profiles>
+	
+	
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<defaultGoal>package</defaultGoal><!-- 预定义执行的目标或者阶段，必须和命令行的参数相同 -->
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>${profile.dir}</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>utf-8</encoding>
+				</configuration>
+
+			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptor>src/main/assembly/assembly.xml</descriptor><!--描述文件路径 -->
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase><!-- 绑定到package生命周期阶段上 -->
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<encoding>utf-8</encoding>
+					<excludes>
+						<exclude>conf/</exclude>
+						<exclude>META-INF/</exclude>
+						<exclude>logback.xml</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>

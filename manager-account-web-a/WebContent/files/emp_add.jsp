@@ -20,7 +20,9 @@
 <link rel="stylesheet" href="../css/jquery.ptTimeSelect.css" />
 <!-- 日历样式 -->
 </head>
-<%!public static final String EMP_ADD_URL = "files/emp_add.action";%>
+<%!
+	public static final String EMP_ADD_URL = "http://shift.com/manager-account-web-a/files/emp_add.action";
+%>
 <body>
 
 	<div class="main_content create_site">
@@ -59,21 +61,21 @@
 										onclick="setupLabel()" />女</label></td>
 							</tr>
 
-							<tr>
+							<!-- <tr>
 								<td align="right">照片：</td>
 								<td align="left">
 									<div class="form-group" id="picDiv">
 
 										<div class="col-md-5">
-											<!-- 定义表单输入组件 -->
+											定义表单输入组件
 											<input type="file" id="pic" name="pic" class="form-control"
 												placeholder="请选择雇员照片">
 										</div>
-										<!-- 定义表单错误提示显示元素 -->
+										定义表单错误提示显示元素
 										<div class="col-md-4" id="picMsg"></div>
 									</div>
 								</td>
-							</tr>
+							</tr> -->
 							<tr>
 								<!-- 
 							<td align="right">紧急联系人：</td>
@@ -106,7 +108,7 @@
 									<!-- <input type="text" class="form-control inline input150" placeholder="出生日期" /> -->
 									<div class="inline relative mr0">
 										<input type="text" class="form-control" style="width: 125px;"
-											id="sTime" name="sTime" readonly="readonly"
+											id="birthday" name="birthday" readonly="readonly"
 											placeholder="开始日期"> <span class="date_icon"
 											style="left: 94px;"><i></i></span>
 									</div>
@@ -118,8 +120,8 @@
 									<!-- <input type="text" class="form-control inline input150" placeholder="入职日期" /> -->
 
 									<div class="inline relative mr0">
-										<input type="text" class="form-control mr0" id="eTime"
-											name="eTime" style="width: 125px;" readonly="readonly"
+										<input type="text" class="form-control mr0" id="hire_date"
+											name="hire_date" style="width: 125px;" readonly="readonly"
 											placeholder="结束日期" /> <span class="date_icon"
 											style="left: 94px;"><i></i></span>
 									</div>
@@ -177,14 +179,14 @@
 									</div>
 								</td>
 							</tr>
-							<tr>
+							<!-- <tr>
 								<td align="right">设为组长：</td>
 								<td align="left"><label class="label_radio r_on"><input
-										type="radio" name="sex" checked="checked"
+										type="radio" name="rid" checked="checked"
 										onclick="setupLabel()" />否</label>&nbsp;&nbsp;&nbsp;&nbsp; <label
-									class="label_radio"><input type="radio" name="sex"
+									class="label_radio"><input type="radio" name="rid"
 										onclick="setupLabel()" />是</label></td>
-							</tr>
+							</tr> -->
 						</table>
 					</div>
 
@@ -230,7 +232,7 @@
 	var prevFrist = new Date(year, month, 1);
 
 	var picker_S = new Pikaday({
-		field : document.getElementById("sTime"),
+		field : document.getElementById("birthday"),
 		firstDay : 1,
 		// maxDate: new Date(),
 		format : 'YYYY/MM/dd',
@@ -263,7 +265,7 @@
 
 	});
 	var picker_E = new Pikaday({
-		field : document.getElementById("eTime"),
+		field : document.getElementById("hire_date"),
 		firstDay : 1,
 		minDate : new Date('2016/01/01'),
 		format : 'YYYY/MM/dd',

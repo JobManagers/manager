@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>cn.mldn</groupId>
 		<artifactId>manager</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.1</version>
 	</parent>
 	<artifactId>manager-account-api</artifactId>
 	<name>manager-account-api</name>
@@ -25,4 +25,32 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<build>
+		<plugins>
+			<plugin> <!-- 编译插件 -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source><!-- 源码JDK版本 -->
+					<target>1.8</target> <!-- 生成class的编译版本 -->
+					<encoding>utf-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin> <!-- 打包插件 -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
